@@ -1,0 +1,77 @@
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\appsettings.json
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Bookshop - The Reader.staticwebassets.runtime.json
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Bookshop - The Reader.exe
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Bookshop - The Reader.deps.json
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Bookshop - The Reader.runtimeconfig.json
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Bookshop - The Reader.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Bookshop - The Reader.pdb
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Humanizer.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\System.Runtime.Caching.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\Bookshop - The Reader.csproj.AssemblyReference.cache
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\Bookshop - The Reader.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\Bookshop - The Reader.AssemblyInfoInputs.cache
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\Bookshop - The Reader.AssemblyInfo.cs
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\Bookshop - The Reader.csproj.CoreCompileInputs.cache
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\Bookshop - The Reader.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\Bookshop - The Reader.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\Bookshop - The Reader.RazorAssemblyInfo.cache
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\Bookshop - The Reader.RazorAssemblyInfo.cs
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\staticwebassets\msbuild.Bookshop - The Reader.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\staticwebassets\msbuild.build.Bookshop - The Reader.props
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Bookshop - The Reader.props
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Bookshop - The Reader.props
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\scopedcss\bundle\Bookshop - The Reader.styles.css
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\scopedcss\projectbundle\Bookshop - The Reader.bundle.scp.css
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\Bookshop - The Reader.csproj.CopyComplete
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\Bookshop - The Reader.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\refint\Bookshop - The Reader.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\Bookshop - The Reader.pdb
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\Bookshop - The Reader.genruntimeconfig.cache
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\ref\Bookshop - The Reader.dll
