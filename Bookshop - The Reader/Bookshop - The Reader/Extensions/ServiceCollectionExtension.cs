@@ -21,7 +21,7 @@ namespace Microsoft.Extensions.DependencyInjection
 
 			return services;
 		}
-		public static IServiceCollection AddApplicationidentity(this IServiceCollection services, IConfiguration config)
+		public static IServiceCollection AddApplicationIdentity(this IServiceCollection services, IConfiguration config)
 		{
 
 			services
