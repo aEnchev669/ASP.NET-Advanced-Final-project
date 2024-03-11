@@ -105,5 +105,11 @@ namespace TheReader.Infrastructure.Constants
 			public const double TotalPriceMaxLength = 10000.00;
 		}
 
+		public static class CommentConstants
+		{
+			//Text
+			public const int TextMinLength = 10;
+			public const int TextMaxLength = 100;
+		}
 	}
 }

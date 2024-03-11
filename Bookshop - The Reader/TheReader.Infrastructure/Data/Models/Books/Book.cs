@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using TheReader.Infrastructure.Data.Models.Review;
 using static TheReader.Infrastructure.Constants.DataConstants;
 
 namespace TheReader.Infrastructure.Data.Models.Books
@@ -73,5 +74,7 @@ namespace TheReader.Infrastructure.Data.Models.Books
 		//Add Range
 		[Comment("The current Book's pages count")]
 		public int Pages { get; set; }
+
+		public ICollection<Comment> Comments { get; set; } = new HashSet<Comment>();
 	}
 }
