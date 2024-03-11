@@ -951,6 +951,33 @@
             "rid": "win"
           }
         }
+      },
+      "TheReader.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "TheReader.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/TheReader.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TheReader.Core.dll": {}
+        }
+      },
+      "TheReader.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.23",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.23"
+        },
+        "compile": {
+          "bin/placeholder/TheReader.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TheReader.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -2442,6 +2469,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "TheReader.Core/1.0.0": {
+      "type": "project",
+      "path": "../TheReader.Core/TheReader.Core.csproj",
+      "msbuildProject": "../TheReader.Core/TheReader.Core.csproj"
+    },
+    "TheReader.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../TheReader.Infrastructure/TheReader.Infrastructure.csproj",
+      "msbuildProject": "../TheReader.Infrastructure/TheReader.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -2450,7 +2487,8 @@
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.23",
       "Microsoft.AspNetCore.Identity.UI >= 6.0.23",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.23",
-      "Microsoft.EntityFrameworkCore.Tools >= 6.0.23"
+      "Microsoft.EntityFrameworkCore.Tools >= 6.0.23",
+      "TheReader.Core >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -2484,7 +2522,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\aench\\OneDrive\\Документи\\GitHub\\ASP.NET-Advanced---Final-project\\Bookshop - The Reader\\TheReader.Core\\TheReader.Core.csproj": {
+              "projectPath": "C:\\Users\\aench\\OneDrive\\Документи\\GitHub\\ASP.NET-Advanced---Final-project\\Bookshop - The Reader\\TheReader.Core\\TheReader.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

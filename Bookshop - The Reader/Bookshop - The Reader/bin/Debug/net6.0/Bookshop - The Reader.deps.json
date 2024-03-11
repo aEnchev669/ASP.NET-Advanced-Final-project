@@ -12,7 +12,8 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.23",
           "Microsoft.AspNetCore.Identity.UI": "6.0.23",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.23",
-          "Microsoft.EntityFrameworkCore.Tools": "6.0.23"
+          "Microsoft.EntityFrameworkCore.Tools": "6.0.23",
+          "TheReader.Core": "1.0.0"
         },
         "runtime": {
           "Bookshop - The Reader.dll": {}
@@ -542,6 +543,23 @@
             "fileVersion": "4.700.19.56404"
           }
         }
+      },
+      "TheReader.Core/1.0.0": {
+        "dependencies": {
+          "TheReader.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "TheReader.Core.dll": {}
+        }
+      },
+      "TheReader.Infrastructure/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.23",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.23"
+        },
+        "runtime": {
+          "TheReader.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -914,6 +932,16 @@
       "sha512": "sha512-CeWTdRNfRaSh0pm2gDTJFwVaXfTq6Xwv/sA887iwPTneW7oMtMlpvDIO+U60+3GWTB7Aom6oQwv5VZVUhQRdPQ==",
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
+    },
+    "TheReader.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TheReader.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

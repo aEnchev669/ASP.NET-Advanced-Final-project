@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TheReader.Infrastructure\TheReader.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

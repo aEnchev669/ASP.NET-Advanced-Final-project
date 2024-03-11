@@ -75,3 +75,7 @@ C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-proje
 C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\Bookshop - The Reader.pdb
 C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\Bookshop - The Reader.genruntimeconfig.cache
 C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\obj\Debug\net6.0\ref\Bookshop - The Reader.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\TheReader.Core.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\TheReader.Infrastructure.dll
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\TheReader.Core.pdb
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader\bin\Debug\net6.0\TheReader.Infrastructure.pdb

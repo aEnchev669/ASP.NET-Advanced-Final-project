@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Bookshop___The_Reader.Components
+namespace BookshopTheReader.Components
 {
 	public class MainMenuComponent : ViewComponent
 	{
