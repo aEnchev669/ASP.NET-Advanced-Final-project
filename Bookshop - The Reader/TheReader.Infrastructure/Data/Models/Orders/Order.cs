@@ -4,7 +4,7 @@ using TheReader.Infrastructure.Data.Models.Account;
 using TheReader.Infrastructure.Data.Models.Books;
 using static TheReader.Infrastructure.Constants.DataConstants;
 
-namespace TheReader.Infrastructure.Data.Models
+namespace TheReader.Infrastructure.Data.Models.Orders
 {
 	[Comment("Order")]
 	public class Order

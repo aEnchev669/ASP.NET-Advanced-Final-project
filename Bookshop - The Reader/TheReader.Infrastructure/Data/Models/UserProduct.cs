@@ -6,7 +6,7 @@ using TheReader.Infrastructure.Data.Models.Books;
 
 namespace TheReader.Infrastructure.Data.Models
 {
-	[Comment("User")]
+	[Comment("User's products")]
 	public class UserProduct
 	{
 		[Key]
@@ -14,15 +14,19 @@ namespace TheReader.Infrastructure.Data.Models
 		public int Id { get; set; }
 
 		[Required]
-		public int ApplicationUserId { get; set; }
+		[Comment("Identifier the current user")]
+		public Guid ApplicationUserId { get; set; } 
 
 		[ForeignKey(nameof(ApplicationUserId))]
+		[Comment("The current user")]
 		public ApplicationUser ApplicationUser { get; set; } = null!;
 
 		[Required]
+		[Comment("Book id of the current user")]
 		public int BookId { get; set; }
 
 		[ForeignKey(nameof(BookId))]
+		[Comment("The book of the current user")]
 		public Book Book { get; set; } = null!;
 	}
 }

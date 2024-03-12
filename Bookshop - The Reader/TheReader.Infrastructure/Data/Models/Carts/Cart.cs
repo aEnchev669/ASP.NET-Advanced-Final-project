@@ -2,9 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using TheReader.Infrastructure.Data.Models.Account;
 
 namespace TheReader.Infrastructure.Data.Models.Carts
 {
+	[Comment("Current cart")]
 	public class Cart
 	{
 		[Key]
@@ -13,10 +15,10 @@ namespace TheReader.Infrastructure.Data.Models.Carts
 
         [Required]
 		[Comment("The current user identifier")]
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
 		[ForeignKey(nameof(UserId))]
 		[Comment("The current user")]
-		public IdentityUser User { get; set; } = null!;
+		public ApplicationUser User { get; set; } = null!;
 
 		[Required]
 		[Comment("Collection of all books in the current cart")]

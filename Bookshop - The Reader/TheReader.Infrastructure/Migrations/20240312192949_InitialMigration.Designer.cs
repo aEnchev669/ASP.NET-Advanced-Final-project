@@ -4,6 +4,7 @@ using BookshopTheReader.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace TheReader.Infrastructure.Migrations
 {
     [DbContext(typeof(TheReaderDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240312192949_InitialMigration")]
+    partial class InitialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -300,7 +302,7 @@ namespace TheReader.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ApplicationUsers", (string)null);
+                    b.ToTable("ApplicationUsers");
 
                     b.HasComment("Current user");
                 });
@@ -319,7 +321,7 @@ namespace TheReader.Infrastructure.Migrations
 
                     b.HasIndex("CartId");
 
-                    b.ToTable("BooksCarts", (string)null);
+                    b.ToTable("BooksCarts");
 
                     b.HasComment("The cart with books");
                 });
@@ -401,7 +403,7 @@ namespace TheReader.Infrastructure.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("Books", (string)null);
+                    b.ToTable("Books");
 
                     b.HasComment("Current Book");
                 });
@@ -423,7 +425,7 @@ namespace TheReader.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Genres", (string)null);
+                    b.ToTable("Genres");
 
                     b.HasComment("Current genre");
                 });
@@ -445,7 +447,7 @@ namespace TheReader.Infrastructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Carts", (string)null);
+                    b.ToTable("Carts");
 
                     b.HasComment("Current cart");
                 });
@@ -517,7 +519,7 @@ namespace TheReader.Infrastructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Orders", (string)null);
+                    b.ToTable("Orders");
 
                     b.HasComment("Order");
                 });
@@ -555,7 +557,7 @@ namespace TheReader.Infrastructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Comments", (string)null);
+                    b.ToTable("Comments");
 
                     b.HasComment("Current Comment");
                 });
@@ -578,7 +580,7 @@ namespace TheReader.Infrastructure.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.ToTable("UsersProducts", (string)null);
+                    b.ToTable("UsersProducts");
 
                     b.HasComment("User's products");
                 });

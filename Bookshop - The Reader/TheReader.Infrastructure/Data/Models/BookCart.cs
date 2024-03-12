@@ -1,16 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TheReader.Infrastructure.Data.Models.Books;
 using TheReader.Infrastructure.Data.Models.Carts;
 
 namespace TheReader.Infrastructure.Data.Models
 {
+	[Comment("The cart with books")]
 	public class BookCart
 	{
 		[Required]

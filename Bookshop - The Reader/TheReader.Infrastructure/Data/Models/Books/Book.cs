@@ -75,6 +75,7 @@ namespace TheReader.Infrastructure.Data.Models.Books
 		[Comment("The current Book's pages count")]
 		public int Pages { get; set; }
 
+		[Comment("Current Book's comments")]
 		public ICollection<Comment> Comments { get; set; } = new HashSet<Comment>();
 	}
 }
