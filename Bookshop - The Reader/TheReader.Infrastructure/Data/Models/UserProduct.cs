@@ -15,7 +15,7 @@ namespace TheReader.Infrastructure.Data.Models
 
 		[Required]
 		[Comment("Identifier the current user")]
-		public Guid ApplicationUserId { get; set; } 
+		public string ApplicationUserId { get; set; } = string.Empty;
 
 		[ForeignKey(nameof(ApplicationUserId))]
 		[Comment("The current user")]

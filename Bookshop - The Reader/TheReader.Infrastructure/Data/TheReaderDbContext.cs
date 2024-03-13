@@ -7,6 +7,7 @@ using TheReader.Infrastructure.Data.Models.Books;
 using TheReader.Infrastructure.Data.Models.Carts;
 using TheReader.Infrastructure.Data.Models.Orders;
 using TheReader.Infrastructure.Data.Models.Review;
+using TheReader.Infrastructure.Data.SeedDb.Configuration;
 
 namespace BookshopTheReader.Infrastructure.Data
 {
@@ -20,29 +21,12 @@ namespace BookshopTheReader.Infrastructure.Data
 
 		protected override void OnModelCreating(ModelBuilder builder)
 		{
-			builder.Entity<BookCart>()
-				.HasKey(bc => new { bc.BookId, bc.CartId });
-
-			builder.Entity<UserProduct>()
-				.HasKey(up => new { up.ApplicationUserId, up.BookId });
-
-			builder
-				.Entity<Book>()
-				.HasMany(b => b.Comments)
-				.WithOne(b => b.Book)
-				.OnDelete(DeleteBehavior.Restrict);
-
-			builder.Entity<Book>()
-				.Property(b => b.Price)
-				.HasPrecision(18, 2);
-
-			builder.Entity<Order>()
-				.Property(o => o.TotalPrice)
-				.HasPrecision(18, 2);
-
-			builder.Entity<Book>()
-				.Property(b => b.Weight)
-				.HasPrecision(18, 2);
+			builder.ApplyConfiguration(new UserConfiguration());
+			builder.ApplyConfiguration(new UserProductConfiguration());
+			builder.ApplyConfiguration(new BookConfiguration());
+			builder.ApplyConfiguration(new BookCartConfiguration());
+			builder.ApplyConfiguration(new GenreConfiguration());
+			builder.ApplyConfiguration(new OrderConfiguration());
 
 			base.OnModelCreating(builder);
 		}

@@ -4,7 +4,6 @@ using BookshopTheReader.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -12,10 +11,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace TheReader.Infrastructure.Migrations
 {
     [DbContext(typeof(TheReaderDbContext))]
-    [Migration("20240312192949_InitialMigration")]
-    partial class InitialMigration
+    partial class TheReaderDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -228,11 +226,8 @@ namespace TheReader.Infrastructure.Migrations
 
             modelBuilder.Entity("TheReader.Infrastructure.Data.Models.Account.ApplicationUser", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
@@ -259,6 +254,10 @@ namespace TheReader.Infrastructure.Migrations
                     b.Property<int>("Gender")
                         .HasColumnType("int")
                         .HasComment("The genre of the current user");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit")
+                        .HasComment("Is the user deleten");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -305,6 +304,46 @@ namespace TheReader.Infrastructure.Migrations
                     b.ToTable("ApplicationUsers");
 
                     b.HasComment("Current user");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "17eb4845-eeb1-4fbe-9d2b-324e2ab92c93",
+                            AccessFailedCount = 0,
+                            BirthDate = new DateTime(2024, 3, 13, 21, 58, 32, 390, DateTimeKind.Local).AddTicks(6564),
+                            ConcurrencyStamp = "b444754e-1c29-45ec-baab-3ec109d82d1a",
+                            Email = "admin231@gmail.com",
+                            EmailConfirmed = false,
+                            FirstName = "Admin",
+                            Gender = 0,
+                            IsDeleted = false,
+                            LastName = "Admin",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "admin231@gmail.com",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJwBWqf/4T3bzg4wHWGWm96+qCesdZdO6h2LzyDZpemNTBzN0biCeML/BrPChst+Ig==",
+                            PhoneNumberConfirmed = false,
+                            RegistrationDate = new DateTime(2024, 3, 13, 21, 58, 32, 390, DateTimeKind.Local).AddTicks(6459),
+                            TwoFactorEnabled = false
+                        },
+                        new
+                        {
+                            Id = "641ca250-7c7a-40a5-8e3c-657714fb3d4a",
+                            AccessFailedCount = 0,
+                            BirthDate = new DateTime(2024, 3, 13, 21, 58, 32, 392, DateTimeKind.Local).AddTicks(179),
+                            ConcurrencyStamp = "f776cb8f-fc8d-4cb6-bba8-82f55dfe7151",
+                            Email = "guest231@gmail.com",
+                            EmailConfirmed = false,
+                            FirstName = "Guesr",
+                            Gender = 1,
+                            IsDeleted = false,
+                            LastName = "Guest",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "guest231@gmail.com",
+                            PasswordHash = "AQAAAAEAACcQAAAAEF+VDpf99noriFxmOgA/LmC3+xAj7qlB2vTPaMUP2uGsDJYsjtKZNQsQzCjyEVjlsg==",
+                            PhoneNumberConfirmed = false,
+                            RegistrationDate = new DateTime(2024, 3, 13, 21, 58, 32, 392, DateTimeKind.Local).AddTicks(159),
+                            TwoFactorEnabled = false
+                        });
                 });
 
             modelBuilder.Entity("TheReader.Infrastructure.Data.Models.BookCart", b =>
@@ -350,8 +389,8 @@ namespace TheReader.Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasComment("Genre Identifier");
 
-                    b.Property<int>("ISBN")
-                        .HasColumnType("int")
+                    b.Property<long>("ISBN")
+                        .HasColumnType("bigint")
                         .HasComment("The International Standard Book Number");
 
                     b.Property<string>("ImageUrl")
@@ -378,13 +417,9 @@ namespace TheReader.Infrastructure.Migrations
                         .HasColumnType("decimal(18,2)")
                         .HasComment("The current Book's Price");
 
-                    b.Property<DateTime>("PublishedDate")
-                        .HasColumnType("datetime2")
-                        .HasComment("The published date of the current Book");
-
-                    b.Property<int>("StockQuantity")
+                    b.Property<int>("PublishedYear")
                         .HasColumnType("int")
-                        .HasComment("The stock Quantity of the current Book");
+                        .HasComment("The published year of the current Book");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -406,6 +441,68 @@ namespace TheReader.Infrastructure.Migrations
                     b.ToTable("Books");
 
                     b.HasComment("Current Book");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 5,
+                            Author = "Робърт Кийосаки",
+                            Description = "Уроците за парите, на които богатите учат децата си, а бедните и средната класа - не. Робърт Кийосаки промени начина, по който милиони хора по света мислят за парите. Той притежава репутация на човек, чиито възгледи често противоречат на конвенционалното мислене със своята смелост и безкомпромисна откровеност. Той е световно признат експерт по финансова грамотност.",
+                            GenreId = 6,
+                            ISBN = 9789542929550L,
+                            ImageUrl = "https://cdn.ozone.bg/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/b/o/08f6ab8aa9194c941520c56f863d199c/bogat-tatko--beden-tatko-30.jpg",
+                            Language = "Български",
+                            Pages = 360,
+                            Price = 15.95m,
+                            PublishedYear = 2018,
+                            Title = "Богат татко, беден татко",
+                            Weight = 0.39000000000000001
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Author = "Ашли Ванс",
+                            Description = "Единствената официална биография на Илън Мъск, написана с неговото специално съдействие.Илън Мъск - човекът зад PayPal, Tesla Motors, SpaceX, SolarCity, Hyperloop и идеята за глобална комуникационна мрежа. Гениалният визионер - Хенри Форд, Томас Едисън и Стив Джобс в едно. Най-дръзкият предприемач на Силициевата долина: инженер, изобретател и индустриалец. Прагматикът и фантастът, който подготвя човечеството за колонизация на Марс.Мъск стои начело на един от най-големите подеми в историята на бизнеса. Той е единственият предприемач с достатъчно енергия, сила и въображение, който инвестира цялото си богатство в иновации от друго измерение и революционизира три индустрии едновременно - космическата, автомобилната и енергийната. Мисията на живота му изглежда фантастична, но ако Мъск успее да си купи достатъчно време, той ще предприеме най-голямото пътуване за спасение на човечеството.Написана след повече от 50 часа разговори с Мъск и интервюта с около 300 души, книгата проследява пътя от нелекото детство на Илън Мъск в ЮАР до върховете на световния бизнес. Авторът Ашли Ванс разказва историите на компаниите на Мъск, които променят света, и живота на човека, който, независимо дали е обичан, или мразен, възхваляван или отричан, създава едно невероятно бъдеще.Бестселър на Ню Йорк Таймс и една от най-добрите книги на 2015 г. според Уолстрийт Джърнал и Амазон.Иска ми се да умра с мисълта, че пред човечеството има светло бъдеще. Ако можем да си осигурим чиста енергия и да станем междупланетарна раса с устойчива цивилизация на друга планета - за да се справим с най-лошия сценарий, в който човешкото съзнание е заличено - тогава... мисля, че ще бъде много хубаво.Илън Мъск Ашли Ванс е журналист, завършил колежа Pomona. Повече от 10 години пише за технологичната индустрия в Сан Франциско и е известен историк на Силициевата долина. Работил е за New York Times и The Register, а понастоящем - за списание Bloomberg Businessweek. Водещ е на телевизионно предаване.",
+                            GenreId = 7,
+                            ISBN = 9789547713611L,
+                            ImageUrl = "https://www.book.store.bg/lrgimg/180958/ilyn-mysk-biografia.jpg",
+                            Language = "Български",
+                            Pages = 416,
+                            Price = 25m,
+                            PublishedYear = 2016,
+                            Title = "Илън Мъск",
+                            Weight = 0.59599999999999997
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Author = "Ватсаяна Маланага",
+                            Description = "За първи път на български в оригиналния си и най-пълен вариант излиза един от най-дискутираните и експлоатирани текстове на древността – древноиндийската библия на любовното изкуство “Камасутра” от Ватсаяна Маланага.Сутра е древен свещен текст, сборник от учения, препоръки и наставления, а Кама – наслаждаване с ръководените от разума сетива, съединени с тялото и съзнанието за удоволствието, породено от докосването на тялото. “След като създаде мъжа и жената, Праджапати (“владетелят на сътвореното”, бащата на боговете, творецът на света) създаде и учение от сто хиляди части, което да ги води в живота им.” В първоначалния си вид това учение се е състояло от три главни части – за дхарма (духовния живот), артхи (социалния живот) и кама (сетивния живот). По-късно сакралният текст за кама бил многократно преправян и съкращаван, докато се оформи достигналият до нас от ІІ в. сл. хр. окончателен вариант на Ватсаяна Маланага. В този вариант учението е оформено в 7 раздела – за общите въпроси, за прегръдките, за любовното сливане, за единствената съпруга, за чуждите жени, за куртизанките, за изкуството на прелъстяването, церовете за сила и пр.Всъщност, учението на Камасутра не предлага единствено система от техники, любовни пози или методи за извличане на максимална наслада, а също многобройни съвети за уменията, които любовниците трябва да проявят в акта на сливане:",
+                            GenreId = 3,
+                            ISBN = 9545283033L,
+                            ImageUrl = "https://cdn.ozone.bg/media/catalog/product/cache/1/image/a4e40ebdc3e371adff845072e1c73f37/k/a/26310e438a5a1fb8622738f1e5d34f8b/kamasutra-31.jpg",
+                            Language = "Български",
+                            Pages = 200,
+                            Price = 15.60m,
+                            PublishedYear = 2008,
+                            Title = "Камасутра",
+                            Weight = 0.28000000000000003
+                        },
+                        new
+                        {
+                            Id = 1,
+                            Author = "Колектив",
+                            Description = "Бил Кембъл изигра инструментална роля в растежа на няколко видни компании като Google, Apple и Intuit, насърчавайки дълбоки връзки с визионери от Силициевата долина, включително Стив Джобс, Лари Пейдж и Ерик Шмид. В допълнение, този бизнес гений е ментор на десетки други важни лидери на двата бряга, от предприемачи до рискови капиталисти до педагози до футболисти, оставяйки след смъртта си през 2016 г. наследство от разрастващи се компании, успешни хора, уважение, приятелство и любов.Лидерите в Google в продължение на повече от десетилетие, Ерик Шмид, Джонатан Розенберг и Алън Ийгъл изпитаха от първа ръка как човекът, известен като треньора Бил, изгради доверителни взаимоотношения, насърчи личностното израстване – дори при тези на върха на кариерата си – вдъхнови смелост и идентифицира и разреши тлеещото напрежение, което неизбежно възниква в бързо променящи се среди. За да почетат своя наставник и да вдъхновят и учат бъдещите поколения, те са кодирали неговата мъдрост в това основно ръководство.Въз основа на интервюта с над осемдесет души, които са познавали и обичали Бил Кембъл, Trillion Dollar Coach обяснява принципите на треньора и ги илюстрира с истории от много велики хора и компании, с които е работил. Резултатът е план за далновидни бизнес лидери и мениджъри, който ще им помогне да създадат по-ефективни и по-бързо развиващи се култури, екипи и компании.",
+                            GenreId = 6,
+                            ISBN = 9781473675988L,
+                            ImageUrl = "https://cdn.ozone.bg/media/catalog/product/cache/1/image/a4e40ebdc3e371adff845072e1c73f37/t/r/2b7a8621ac2bd4eaa7e74423ad815c14/trillion-dollar-coach-30.jpg",
+                            Language = "Български",
+                            Pages = 240,
+                            Price = 26m,
+                            PublishedYear = 2020,
+                            Title = "Трилиони",
+                            Weight = 0.17000000000000001
+                        });
                 });
 
             modelBuilder.Entity("TheReader.Infrastructure.Data.Models.Books.Genre", b =>
@@ -428,6 +525,63 @@ namespace TheReader.Infrastructure.Migrations
                     b.ToTable("Genres");
 
                     b.HasComment("Current genre");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Фантазия"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Научна фантастика"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Класика"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Мистерия"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Ужаси"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Финанси"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Биография"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Храни и напитки"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "История"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Name = "Пътуване"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Name = "Престъпление"
+                        });
                 });
 
             modelBuilder.Entity("TheReader.Infrastructure.Data.Models.Carts.Cart", b =>
@@ -439,8 +593,9 @@ namespace TheReader.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int")
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)")
                         .HasComment("The current user identifier");
 
                     b.HasKey("Id");
@@ -512,8 +667,9 @@ namespace TheReader.Infrastructure.Migrations
                         .HasColumnType("decimal(18,2)")
                         .HasComment("The total of the current order");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -547,8 +703,9 @@ namespace TheReader.Infrastructure.Migrations
                         .HasColumnType("nvarchar(100)")
                         .HasComment("Current comment text");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int")
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)")
                         .HasComment("User identifier");
 
                     b.HasKey("Id");
@@ -564,8 +721,8 @@ namespace TheReader.Infrastructure.Migrations
 
             modelBuilder.Entity("TheReader.Infrastructure.Data.Models.UserProduct", b =>
                 {
-                    b.Property<int>("ApplicationUserId")
-                        .HasColumnType("int")
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)")
                         .HasComment("Identifier the current user");
 
                     b.Property<int>("BookId")

@@ -9,7 +9,8 @@ namespace TheReader.Infrastructure.Constants
 {
     public static class DataConstants
     {
-        public static class BookConstants
+		public const string DateTimeDefaultFormat = "dd/MM/yyyy";
+		public static class BookConstants
         {
             //Title
             public const int TitleMinLength = 1;

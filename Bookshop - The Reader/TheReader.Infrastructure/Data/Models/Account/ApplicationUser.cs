@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using TheReader.Infrastructure.Data.Models.Enums;
 using TheReader.Infrastructure.Data.Models.Orders;
 using TheReader.Infrastructure.Data.Models.Review;
@@ -9,7 +10,7 @@ using static TheReader.Infrastructure.Constants.DataConstants;
 namespace TheReader.Infrastructure.Data.Models.Account
 {
     [Comment("Current user")]
-	public class ApplicationUser : IdentityUser<Guid>
+	public class ApplicationUser : IdentityUser<string>
 	{
 
         [Required]
@@ -31,6 +32,10 @@ namespace TheReader.Infrastructure.Data.Models.Account
 		[Required]
 		[Comment("The genre of the current user")]
 		public GenderType Gender { get; set; }
+
+		[Required]
+		[Comment("Is the user deleten")]
+		public bool IsDeleted { get; set; }
 
 		[Comment("All comments posted by the current user")]
 		public ICollection<Comment> Comments { get; set; } = new HashSet<Comment>();

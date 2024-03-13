@@ -32,7 +32,7 @@ namespace TheReader.Infrastructure.Data.Models.Review
 
 		[Required]
 		[Comment("User identifier")]
-		public Guid UserId { get; set; }
+		public string UserId { get; set; } = string.Empty;
 
 		[ForeignKey(nameof(UserId))]
 		[Comment("The user who created the current comment")]

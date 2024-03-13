@@ -13,9 +13,9 @@ namespace TheReader.Infrastructure.Data.Models.Carts
 		[Comment("Current cart identifier")]
 		public int Id { get; set; }
 
-        [Required]
+		[Required]
 		[Comment("The current user identifier")]
-        public Guid UserId { get; set; }
+		public string UserId { get; set; } = string.Empty;
 		[ForeignKey(nameof(UserId))]
 		[Comment("The current user")]
 		public ApplicationUser User { get; set; } = null!;

@@ -15,7 +15,7 @@ namespace TheReader.Infrastructure.Data.Models.Books
 
 		[Required]
 		[Comment("The International Standard Book Number")]
-		public int ISBN { get; set; }
+		public long ISBN { get; set; }
 
 		[Required]
 		[MaxLength(BookConstants.TitleMaxLength)]
@@ -38,14 +38,9 @@ namespace TheReader.Infrastructure.Data.Models.Books
 		public decimal Price { get; set; }
 
 		[Required]
-		[Comment("The stock Quantity of the current Book")]
+		[Comment("The published year of the current Book")]
 		//Add Range
-		public int StockQuantity { get; set; }
-
-		[Required]
-		[Comment("The published date of the current Book")]
-		//Add Range
-		public DateTime PublishedDate { get; set; }
+		public int PublishedYear { get; set; }
 
 		[Required]
 		[Comment("Genre Identifier")]
