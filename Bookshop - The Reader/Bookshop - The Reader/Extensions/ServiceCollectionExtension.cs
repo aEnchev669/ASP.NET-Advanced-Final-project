@@ -9,7 +9,6 @@ namespace Microsoft.Extensions.DependencyInjection
 	{
 		public static IServiceCollection AddApplicationServices(this IServiceCollection services)
 		{
-
 			return services;
 		}
 		public static IServiceCollection AddApplicationDbContext(this IServiceCollection services, IConfiguration config)
@@ -26,7 +25,13 @@ namespace Microsoft.Extensions.DependencyInjection
 		{
 
 			services
-				.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+				.AddDefaultIdentity<IdentityUser>(options =>
+			    {
+					options.SignIn.RequireConfirmedAccount = false;
+					options.Password.RequireNonAlphanumeric = false;
+					options.Password.RequireDigit = false;
+					options.Password.RequireUppercase = false;
+			    })
 				.AddEntityFrameworkStores<TheReaderDbContext>();
 
 			return services;
