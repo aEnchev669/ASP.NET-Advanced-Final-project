@@ -1,6 +1,5 @@
-﻿using BookshopTheReader.Models;
-using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+﻿using Microsoft.AspNetCore.Mvc;
+using TheReader.Core.Contracts.Book;
 
 namespace BookshopTheReader.Controllers
 {
@@ -8,20 +7,27 @@ namespace BookshopTheReader.Controllers
 	{
 		private readonly ILogger<HomeController> _logger;
 
-		public HomeController(ILogger<HomeController> logger)
+		private readonly IBookService bookService;
+
+		public HomeController(
+			ILogger<HomeController> logger,
+			IBookService _bookService)
 		{
 			_logger = logger;
+			bookService = _bookService;
 		}
 
-		public IActionResult Index()
+		public async Task<IActionResult> Index()
 		{
-			return View();
+			var model = await bookService.LastFourBooksAsync();
+
+			return View(model);
 		}
 
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-		public IActionResult Error()
+		public async Task<IActionResult> Error(int statusCode)
 		{
-			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+			return View("Error");
 		}
 	}
 }
