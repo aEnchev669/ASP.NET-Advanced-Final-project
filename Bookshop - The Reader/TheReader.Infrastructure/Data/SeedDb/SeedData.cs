@@ -30,26 +30,26 @@ namespace TheReader.Infrastructure.Data.SeedDb
 		public Genre Travel { get; set; } = null!;
 		public Genre Crime { get; set; } = null!;
 
-        public SeedData()
-        {
+		public SeedData()
+		{
 			SeedUsers();
 			SeedBooks();
 			SeedGenres();
-        }
+		}
 
-        private void SeedUsers()
+		private void SeedUsers()
 		{
 			var hasher = new PasswordHasher<ApplicationUser>();
 
 			AdminUser = new ApplicationUser()
 			{
 				Id = "17eb4845-eeb1-4fbe-9d2b-324e2ab92c93",
+				UserName = "admin231",
+				NormalizedUserName = "ADMIN231",
+				Email = "Admin@gmail.com",
+				NormalizedEmail = "ADMIN@gmail.com",
 				FirstName = "Admin",
-				LastName = "Admin",
-				Email = "admin231@gmail.com",
-				NormalizedEmail = "admin231@gmail.com",
-				BirthDate = DateTime.Now,
-				Gender = (GenderType)0,
+				LastName = "Adminov",
 			};
 
 			AdminUser.PasswordHash = hasher.HashPassword(AdminUser, "Admin123");
@@ -57,10 +57,12 @@ namespace TheReader.Infrastructure.Data.SeedDb
 			GuestUser = new ApplicationUser()
 			{
 				Id = "641ca250-7c7a-40a5-8e3c-657714fb3d4a",
-				FirstName = "Guesr",
-				LastName = "Guest",
+				UserName = "Guest231",
+				NormalizedUserName = "GUEST231",
+				FirstName = "Guest",
+				LastName = "Guestov",
 				Email = "guest231@gmail.com",
-				NormalizedEmail = "guest231@gmail.com",
+				NormalizedEmail = "GUEST231@gmail.com",
 				BirthDate = DateTime.Now,
 				Gender = (GenderType)1,
 			};

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using TheReader.Infrastructure.Extensions;
 
 namespace Bookshop___The_Reader.Controllers
 {
@@ -37,7 +36,7 @@ namespace Bookshop___The_Reader.Controllers
 			return View();
 		}
 		private IActionResult GeneralErrorMessage()
-		{ 
+		{
 			return View();
 		}
 	}

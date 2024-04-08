@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "kogHRusc9LsOVZ4K430GSXxMFnWYpSI+oObsl1qAV7U1AvvVC9+3KSx+isgzw2rlE0E0OptQSTipdP/Grhj4jA==",
+  "dgSpecHash": "XmXbs1TrWyh20bBhj2R4BqiS2mehUiizN0N5KBV4BnvDROZXJQZzpuSeoTH0Pq/IOx+Rp4vWJ3no476kzwKUFA==",
   "success": true,
   "projectFilePath": "C:\\Users\\aench\\OneDrive\\Документи\\GitHub\\ASP.NET-Advanced---Final-project\\Bookshop - The Reader\\TheReader.Core\\TheReader.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aench\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.23\\microsoft.aspnetcore.cryptography.internal.6.0.23.nupkg.sha512",
     "C:\\Users\\aench\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.23\\microsoft.aspnetcore.cryptography.keyderivation.6.0.23.nupkg.sha512",
+    "C:\\Users\\aench\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\aench\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\aench\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.23\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.23.nupkg.sha512",
     "C:\\Users\\aench\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\aench\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
@@ -48,6 +50,7 @@
     "C:\\Users\\aench\\.nuget\\packages\\system.security.permissions\\4.7.0\\system.security.permissions.4.7.0.nupkg.sha512",
     "C:\\Users\\aench\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\aench\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
+    "C:\\Users\\aench\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512",
     "C:\\Users\\aench\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
   "logs": []

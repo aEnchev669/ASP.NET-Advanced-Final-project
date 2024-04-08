@@ -1,6 +1,7 @@
 C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\TheReader.Infrastructure\bin\Debug\net6.0\TheReader.Infrastructure.deps.json
 C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\TheReader.Infrastructure\bin\Debug\net6.0\TheReader.Infrastructure.dll
 C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\TheReader.Infrastructure\bin\Debug\net6.0\TheReader.Infrastructure.pdb
+C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\TheReader.Infrastructure\obj\Debug\net6.0\TheReader.Infrastructure.csproj.AssemblyReference.cache
 C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\TheReader.Infrastructure\obj\Debug\net6.0\TheReader.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\TheReader.Infrastructure\obj\Debug\net6.0\TheReader.Infrastructure.AssemblyInfoInputs.cache
 C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\TheReader.Infrastructure\obj\Debug\net6.0\TheReader.Infrastructure.AssemblyInfo.cs
@@ -9,4 +10,3 @@ C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-proje
 C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\TheReader.Infrastructure\obj\Debug\net6.0\refint\TheReader.Infrastructure.dll
 C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\TheReader.Infrastructure\obj\Debug\net6.0\TheReader.Infrastructure.pdb
 C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\TheReader.Infrastructure\obj\Debug\net6.0\ref\TheReader.Infrastructure.dll
-C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\TheReader.Infrastructure\obj\Debug\net6.0\TheReader.Infrastructure.csproj.AssemblyReference.cache

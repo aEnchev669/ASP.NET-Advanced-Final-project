@@ -1,5 +1,11 @@
 ﻿<ul class="navbar-nav flex-grow-1">
     <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Books" asp-action="All">Всички Книги</a>
     </li>
+    @if (this.User?.Identity?.IsAuthenticated ?? false)
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Books" asp-action="Genre">Жанрове</a>
+        </li>
+    }
 </ul>

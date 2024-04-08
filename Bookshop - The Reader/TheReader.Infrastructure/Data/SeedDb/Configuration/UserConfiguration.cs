@@ -17,6 +17,7 @@ namespace TheReader.Infrastructure.Data.SeedDb.Configuration
 			var data = new SeedData();
 
 			builder.HasData(new ApplicationUser[] {data.AdminUser, data.GuestUser});
+
 		}
 	}
 }
