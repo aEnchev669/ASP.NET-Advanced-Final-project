@@ -16,7 +16,9 @@ namespace TheReader.Infrastructure.Data.Models.Books
 		[Comment("The current Genre's Name")]
 		public string Name { get; set; } = string.Empty;
 
-		[Comment("Books with the current genre")]
+		public bool IsDeleted { get; set; } = false;
+
+        [Comment("Books with the current genre")]
 		public ICollection<Book> Books { get; set; } = new HashSet<Book>();
 	}
 }

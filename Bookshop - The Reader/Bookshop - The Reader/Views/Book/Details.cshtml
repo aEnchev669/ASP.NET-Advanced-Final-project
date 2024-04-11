@@ -1,9 +1,42 @@
-﻿
-@model AllBooksViewModel
+﻿@model BookIndexViewModel
 
 @{
-	ViewData["Title"] = "Books Details";
+    ViewBag.Title = "Book Details";
 }
 
-<h2 class="text-center">@ViewData["Title"]</h2>
+<h2 class="text-center">@ViewBag.Title</h2>
 <hr />
+<div class="container" style="display:inline">
+    <a asp-area="" asp-controller="Book" asp-action="All" class="btn btn-primary profile-button mb-2 col-1" type="button">Back</a>
+
+    <div class="row">
+        <div class="col-5">
+            <img class="card-img-top" style="width: 30rem;"
+                 src="@Model.ImageUrl" alt="Book Image">
+        </div>
+        <div class="card col-7 border-0">
+            <p style="font-size:25px;"><u>@Model.Title</u></p>
+            <p class="mb-0"><span class="fw-bold">Автор: </span>@Model.Author</p>
+            <p class="mb-0"><span class="fw-bold">Описание: </span>@Model.Description</p>
+            <p class="mb-0"><span class="fw-bold">Цена: </span>@Model.Price</p>
+            <p class="mb-0"><span class="fw-bold">Брои страници: </span>@Model.Pages</p>
+            <p class="mb-0"><span class="fw-bold">Жанр: </span>@Model.Genre</p>
+            <p class="mb-0"><span class="fw-bold">ISBN: </span>@Model.ISBN</p>
+            <p class="mb-0"><span class="fw-bold">Език: </span>@Model.Language</p>
+            <p class="mb-0"><span class="fw-bold">Година на публикуване: </span>@Model.PublishedYear</p>
+            <p class="mb-0"><span class="fw-bold">Тегло: </span>@Model.Weight</p>
+
+            <form asp-controller="Cart" asp-action="Add" asp-route-id="@Model.Id" method="post" class="mb-2">
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+            </form>
+           
+                <a asp-area="Admin" asp-controller="Book" asp-action="Edit" asp-route-id="@Model.Id">
+                    
+                </a>
+                <a asp-area="Admin" asp-controller="Book" asp-action="Delete" asp-route-id="@Model.Id">
+                    
+                </a>
+            
+        </div>
+    </div>
+</div>

@@ -1,37 +1,58 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using TheReader.Core.Contracts.Book;
 using TheReader.Core.Models.Book;
+using TheReader.Infrastructure.Constants;
 
 namespace Bookshop___The_Reader.Controllers
 {
 	[Authorize]
 	public class BookController : Controller
 	{
+		private readonly IBookService bookService;
+		//private readonly IGenreService genreService;
+
+		public BookController(IBookService _bookService, IGenreService _genreService)
+		{
+			bookService = _bookService;
+			//genreService = _genreService;
+		}
+
 		[AllowAnonymous]
 		public async Task<IActionResult> All()
 		{
-			var model = new AllBooksViewModel();
-			return View(model);
-		}
-		public async Task<IActionResult> Favourites()
-		{
-			var model = new AllBooksViewModel();
-			return View(model);
+			var books = await bookService.AllBooksAsync();
+			if (books == null)
+			{
+				return View();
+			}
+			return View(books);
 		}
 
 		public async Task<IActionResult> Details(int id)
 		{
-			var model = new BooksDetailsViewModel();
-			return View(model);
+			try
+			{
+				var model = await bookService.GetDetailsByIdAsync(id);
+
+				return View(model);
+			}
+			catch (ArgumentNullException)
+			{
+				ModelState.AddModelError("", "Invalid id");
+				return View();
+			}
+			catch (Exception)
+			{
+				return RedirectToAction("Index", "Home");
+			}
+
 		}
-		public async Task<IActionResult> Reviews(int id)
-		{
-			var model = new BooksDetailsViewModel();
-			return View(model);
-		}
+		
 		private IActionResult GeneralErrorMessage()
 		{
-			
+
+
 			return View();
 		}
 	}

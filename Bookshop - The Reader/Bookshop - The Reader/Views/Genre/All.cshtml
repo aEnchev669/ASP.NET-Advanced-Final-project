@@ -1,0 +1,31 @@
+﻿@model IEnumerable<GenreViewModel>
+
+@{
+	ViewData["Title"] = "All Genres";
+}
+
+<h2 class="text-center">All Genres</h2>
+
+<hr />
+
+<div class="row">
+	@foreach (var genre in Model)
+	{
+		<div class="col-md-3 text-center categoryBottom">
+			<a asp-controller="Genre" asp-action="Books" asp-route-name="@genre.Name">
+				<div class="card list-group-item-action">
+
+					<div class="card-body">
+						<p class="card-text">@genre.Name </p>
+					</div>
+				</div>
+			</a>
+
+		</div>
+	}
+	<div>
+		<a href="/Admin/Genre/Add" class="btn btn-sm" style="color: #234476">
+			<input type="submit" value="Add new Genre" class="fs-6 btn btn-success mb-3 p-2" />
+		</a>
+	</div>
+</div>

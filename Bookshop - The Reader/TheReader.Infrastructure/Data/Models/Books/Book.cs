@@ -65,7 +65,9 @@ namespace TheReader.Infrastructure.Data.Models.Books
 		[Comment("The currrent Book weight")]
 		public double Weight { get; set; }
 
-		[Required]
+		public bool IsDeleted { get; set; } = false;
+
+        [Required]
 		//Add Range
 		[Comment("The current Book's pages count")]
 		public int Pages { get; set; }

@@ -283,6 +283,9 @@ namespace TheReader.Infrastructure.Migrations
                         .HasColumnType("nvarchar(2048)")
                         .HasComment("The current Book's cover image url");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Language")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -335,6 +338,7 @@ namespace TheReader.Infrastructure.Migrations
                             GenreId = 6,
                             ISBN = 9789542929550L,
                             ImageUrl = "https://cdn.ozone.bg/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/b/o/08f6ab8aa9194c941520c56f863d199c/bogat-tatko--beden-tatko-30.jpg",
+                            IsDeleted = false,
                             Language = "Български",
                             Pages = 360,
                             Price = 15.95m,
@@ -350,6 +354,7 @@ namespace TheReader.Infrastructure.Migrations
                             GenreId = 7,
                             ISBN = 9789547713611L,
                             ImageUrl = "https://www.book.store.bg/lrgimg/180958/ilyn-mysk-biografia.jpg",
+                            IsDeleted = false,
                             Language = "Български",
                             Pages = 416,
                             Price = 25m,
@@ -365,6 +370,7 @@ namespace TheReader.Infrastructure.Migrations
                             GenreId = 3,
                             ISBN = 9545283033L,
                             ImageUrl = "https://cdn.ozone.bg/media/catalog/product/cache/1/image/a4e40ebdc3e371adff845072e1c73f37/k/a/26310e438a5a1fb8622738f1e5d34f8b/kamasutra-31.jpg",
+                            IsDeleted = false,
                             Language = "Български",
                             Pages = 200,
                             Price = 15.60m,
@@ -380,6 +386,7 @@ namespace TheReader.Infrastructure.Migrations
                             GenreId = 6,
                             ISBN = 9781473675988L,
                             ImageUrl = "https://cdn.ozone.bg/media/catalog/product/cache/1/image/a4e40ebdc3e371adff845072e1c73f37/t/r/2b7a8621ac2bd4eaa7e74423ad815c14/trillion-dollar-coach-30.jpg",
+                            IsDeleted = false,
                             Language = "Български",
                             Pages = 240,
                             Price = 26m,
@@ -398,6 +405,9 @@ namespace TheReader.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -414,56 +424,67 @@ namespace TheReader.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
+                            IsDeleted = false,
                             Name = "Фантазия"
                         },
                         new
                         {
                             Id = 2,
+                            IsDeleted = false,
                             Name = "Научна фантастика"
                         },
                         new
                         {
                             Id = 3,
+                            IsDeleted = false,
                             Name = "Класика"
                         },
                         new
                         {
                             Id = 4,
+                            IsDeleted = false,
                             Name = "Мистерия"
                         },
                         new
                         {
                             Id = 5,
+                            IsDeleted = false,
                             Name = "Ужаси"
                         },
                         new
                         {
                             Id = 6,
+                            IsDeleted = false,
                             Name = "Финанси"
                         },
                         new
                         {
                             Id = 7,
+                            IsDeleted = false,
                             Name = "Биография"
                         },
                         new
                         {
                             Id = 8,
+                            IsDeleted = false,
                             Name = "Храни и напитки"
                         },
                         new
                         {
                             Id = 9,
+                            IsDeleted = false,
                             Name = "История"
                         },
                         new
                         {
                             Id = 10,
+                            IsDeleted = false,
                             Name = "Пътуване"
                         },
                         new
                         {
                             Id = 11,
+                            IsDeleted = false,
                             Name = "Престъпление"
                         });
                 });
@@ -667,44 +688,44 @@ namespace TheReader.Infrastructure.Migrations
                         {
                             Id = "17eb4845-eeb1-4fbe-9d2b-324e2ab92c93",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "bb713dc1-2eeb-4a48-8382-387778308ba7",
+                            ConcurrencyStamp = "b73fc818-536d-4e97-ac87-272c0d54101b",
                             Email = "Admin@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@gmail.com",
                             NormalizedUserName = "ADMIN231",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAyhr8S/YvSYS1HSjpQxPJa/YCOypzxf06vgat/vV/Hmqm3MpE0V5Uuqts+TU0UFBA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEItz2Afa4b7762erRAf8ZcjF+f+BF3e2QrmIsZ5pFG6x5yEZG30rLV+wZux+VKcM3w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "16de10a4-ea9e-4e4f-88ef-abc275d1ef23",
+                            SecurityStamp = "b89dc96c-4081-4ea8-8e42-1b67b0959d40",
                             TwoFactorEnabled = false,
                             UserName = "admin231",
                             FirstName = "Admin",
                             Gender = 0,
                             IsDeleted = false,
                             LastName = "Adminov",
-                            RegistrationDate = new DateTime(2024, 4, 8, 17, 1, 36, 275, DateTimeKind.Local).AddTicks(6058)
+                            RegistrationDate = new DateTime(2024, 4, 9, 21, 37, 58, 422, DateTimeKind.Local).AddTicks(6652)
                         },
                         new
                         {
                             Id = "641ca250-7c7a-40a5-8e3c-657714fb3d4a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8aa05387-ef79-4b52-9248-cca1a3fd6f12",
+                            ConcurrencyStamp = "6ce0fa74-039d-423c-adbd-973d5a572e41",
                             Email = "guest231@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "GUEST231@gmail.com",
                             NormalizedUserName = "GUEST231",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDAmbF5QsLZCHI67skf7jhw55uvsq5dpyJUhgSFXAqODpy6eouEIDVmpD2Nv46UtXA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEL7tNJzffcTwe58DP0+pekhDgiJ4wZw2K/wZwOLYh3V38i72SAURLlOp5atOOiW01Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b4bc2c5e-4da5-4cf3-bf94-5949f9287cbc",
+                            SecurityStamp = "499fd89c-2883-42c7-8c79-d0768f750caa",
                             TwoFactorEnabled = false,
                             UserName = "Guest231",
-                            BirthDate = new DateTime(2024, 4, 8, 17, 1, 36, 276, DateTimeKind.Local).AddTicks(9889),
+                            BirthDate = new DateTime(2024, 4, 9, 21, 37, 58, 424, DateTimeKind.Local).AddTicks(636),
                             FirstName = "Guest",
                             Gender = 1,
                             IsDeleted = false,
                             LastName = "Guestov",
-                            RegistrationDate = new DateTime(2024, 4, 8, 17, 1, 36, 276, DateTimeKind.Local).AddTicks(9870)
+                            RegistrationDate = new DateTime(2024, 4, 9, 21, 37, 58, 424, DateTimeKind.Local).AddTicks(628)
                         });
                 });
 

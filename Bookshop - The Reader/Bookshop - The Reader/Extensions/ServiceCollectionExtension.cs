@@ -3,9 +3,7 @@ using BookshopTheReader.Infrastructure.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TheReader.Core.Contracts.Book;
-
 using TheReader.Core.Services;
-using TheReader.Infrastructure.Data.Common;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -14,7 +12,8 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             services.AddScoped<IBookService, BookService>();
-            
+            services.AddScoped<IGenreService, GenreService>();
+
 
             return services;
         }
@@ -23,8 +22,6 @@ namespace Microsoft.Extensions.DependencyInjection
             var connectionString = config.GetConnectionString("DefaultConnection");
             services.AddDbContext<TheReaderDbContext>(options =>
                 options.UseSqlServer(connectionString));
-
-            services.AddScoped<IRepository, Repository>();
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 

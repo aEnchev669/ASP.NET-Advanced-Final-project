@@ -16,6 +16,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Areas/Admin/Views/Book/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQm9va1xBZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Areas/Admin/Views/Genre/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR2VucmVcQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -50,6 +58,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Views/Book/Favourites.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xGYXZvdXJpdGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Views/Genre/All.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VucmVcQWxsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Views/Genre/Books.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VucmVcQm9va3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Views/Home/Index.cshtml]
