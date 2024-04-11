@@ -28,11 +28,6 @@ namespace Bookshop___The_Reader.Areas.Admin.Controllers
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> SetRole(string userId, bool isModerator)
-		{
-			return View();
-		}
-		[HttpPost]
 		public async Task<IActionResult> Enable(int id)
 		{
 			return View();
