@@ -6,7 +6,7 @@ using TheReader.Infrastructure.Data.Models.Books;
 
 namespace TheReader.Core.Services
 {
-    public class GenreService : IGenreService
+	public class GenreService : IGenreService
     {
         private readonly TheReaderDbContext dbContext;
         public GenreService(TheReaderDbContext _context)
@@ -40,11 +40,24 @@ namespace TheReader.Core.Services
             await dbContext.SaveChangesAsync();
         }
 
-        public async Task<NewGenreViewModel> GetGenreByIdAsync(int genreId)
+		//public async  Task EditGenreAsync(int cateogryId, NewGenreViewModel categoryModel)
+		//{
+		//	var currGenre = await dbContext
+		//		.Genres
+		//		.FindAsync(cateogryId);
+
+		//	if (currGenre != null)
+		//	{
+		//		currGenre.Name = categoryModel.Name;
+		//		await dbContext.SaveChangesAsync();
+		//	}
+		//}
+
+		public async Task<NewGenreViewModel> GetGenreByIdAsync(int id)
         {
             var genre = await dbContext
                 .Genres
-                .Where(g => g.IsDeleted == false && g.Id == genreId)
+                .Where(g => g.IsDeleted == false && g.Id == id)
                 .Select(g => new NewGenreViewModel
                 {
                     Name = g.Name,
@@ -54,14 +67,28 @@ namespace TheReader.Core.Services
             return genre;
         }
 
-        public async Task<bool> IsGenreExistByIdAsync(int id)
-        {
-            var isExist = await dbContext
-               .Genres
-               .Where(g => g.IsDeleted == false)
-               .AnyAsync(g => g.Id == id);
+		public async Task<NewGenreViewModel> GetGenreByNameAsync(string name)
+		{
+			var genre = await dbContext
+			   .Genres
+			   .Where(g => g.IsDeleted == false && g.Name == name)
+			   .Select(g => new NewGenreViewModel
+			   {
+				   Name = g.Name,
+			   })
+			   .FirstAsync();
 
-            return isExist;
+			return genre;
+		}
+
+		public async Task<bool> IsGenreExistAsync(int id)
+        {
+            var isIdExist = await dbContext
+                .Genres
+                .Where(c => c.IsDeleted == false)
+                .AnyAsync(c => c.Id == id);
+
+            return isIdExist;
         }
 
         public async Task<bool> IsGenreExistByNameAsync(string genreName)
@@ -88,5 +115,7 @@ namespace TheReader.Core.Services
                 await dbContext.SaveChangesAsync();
             }
         }
+
+
     }
 }

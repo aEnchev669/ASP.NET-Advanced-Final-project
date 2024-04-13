@@ -10,8 +10,10 @@ namespace TheReader.Core.Contracts.Book
         Task<BookFormViewModel> GetBookByIdAsync(int bookId);
         Task EditBookAsync(int id, BookFormViewModel bookModel);
         Task<BookIndexViewModel> GetDetailsByIdAsync(int bookId);
-        Task SoftDeleteBookAsync(int bookId);
-        Task<IEnumerable<BookIndexViewModel>> AllIBooksByChoosenGenreAsync(string name);
+        DeleteBookViewModel DeleteBookAsync(int bookId);
+        Task<int> DeleteBookConfirmAsync(int bookId);
+		Task<IEnumerable<BookIndexViewModel>> AllIBooksByChoosenGenreAsync(string name);
         Task<AllBooksFilteredAndPagedServiceModel> AllActiveBooksQueryAsync(AllBooksQueryModel queryModel);
+        Task<bool> BookExistsAsync(int bookId);
     }
 }

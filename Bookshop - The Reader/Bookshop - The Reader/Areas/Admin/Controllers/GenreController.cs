@@ -14,46 +14,7 @@ namespace Bookshop___The_Reader.Areas.Admin.Controllers
         {
             genreService = _genreService;
         }
-        [HttpGet]
-        public IActionResult Add()
-        {
-            var genreModel = new NewGenreViewModel();
-
-            return View(genreModel);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Add(NewGenreViewModel genreModel)
-        {
-            bool isGenreExist = await genreService
-                .IsGenreExistByNameAsync(genreModel.Name);
-
-            if (isGenreExist)
-            {
-                ModelState.AddModelError(nameof(genreModel.Name), "This Genre already exist");
-            }
-
-            //if (!ModelState.IsValid )
-            //{
-            //	TempData[ErrorMessage] = "An unexpected error occurred! Please, try again.";
-
-            //	return View(genreModel);
-            //}
-
-            try
-            {
-                await genreService.CreateNewGenreAsync(genreModel);
-            }
-            catch (Exception)
-            {
-                TempData[ErrorMessage] = "An unexpected error occurred! Please, try again.";
-
-                return View(genreModel);
-            }
-
-            TempData[SuccessMessage] = "Your new genre have been added successfully.";
-            return RedirectToAction("Genre", "All");
-        }
+      
 
         //[HttpGet]
         //public async Task<IActionResult> Edit(int id)
@@ -66,11 +27,7 @@ namespace Bookshop___The_Reader.Areas.Admin.Controllers
         //	};
         //}
 
-        [HttpPost]
-        public async Task<IActionResult> Edit(int id, NewGenreViewModel genreModel)
-        {
-            return View();
-        }
+        
 
         [HttpPost]
         public async Task<IActionResult> Delete(int id)

@@ -38,7 +38,7 @@
             public const int LanguageMaxLength = 30;
 
             //Weigth
-            public const string WeightMinLength = "0.20";
+            public const string WeightMinLength = "0.05";
             public const string WeightMaxLength = "5.00";
 
             //Pages

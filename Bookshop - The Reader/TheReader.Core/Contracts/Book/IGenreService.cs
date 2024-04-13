@@ -6,10 +6,12 @@ namespace TheReader.Core.Contracts.Book
     {
         Task<ICollection<GenreViewModel>> AllGenresAsync();
         Task<bool> IsGenreExistByNameAsync(string genreName);
-        Task<bool> IsGenreExistByIdAsync(int id);
+        Task<bool> IsGenreExistAsync(int id);
         Task CreateNewGenreAsync(NewGenreViewModel genreModel);
         Task SoftDeleteGenreAsync(int genreId);
         Task<NewGenreViewModel> GetGenreByIdAsync(int genreId);
+        Task<NewGenreViewModel> GetGenreByNameAsync(string name);
+		//Task EditGenreAsync(int cateogryId, NewGenreViewModel categoryModel);
 
-    }
+	}
 }
