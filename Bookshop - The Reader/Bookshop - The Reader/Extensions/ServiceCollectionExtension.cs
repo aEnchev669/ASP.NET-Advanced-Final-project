@@ -3,6 +3,9 @@ using BookshopTheReader.Infrastructure.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TheReader.Core.Contracts.Book;
+using TheReader.Core.Contracts.Cart;
+using TheReader.Core.Contracts.Genre;
+using TheReader.Core.Contracts.Order;
 using TheReader.Core.Services;
 
 namespace Microsoft.Extensions.DependencyInjection
@@ -13,6 +16,8 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             services.AddScoped<IBookService, BookService>();
             services.AddScoped<IGenreService, GenreService>();
+            services.AddScoped<ICartService, CartService>();
+            services.AddScoped<IOrderService, OrderService>();
 
 
             return services;

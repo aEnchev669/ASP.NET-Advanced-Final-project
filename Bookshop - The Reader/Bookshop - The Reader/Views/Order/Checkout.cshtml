@@ -1,0 +1,87 @@
+﻿@model OrderFormViewModel
+
+@inject ICartService cartService
+
+@{
+    
+    var userId = this.User.GetId();
+    var cart = await cartService.GetCurrCartByUserIdAsync(userId!);
+}
+
+
+@{
+    ViewBag.Title = "Order Shipping Information";
+}
+
+
+<br />
+<br />
+<h1 class="text-center text-primary">@ViewBag.Title</h1>
+<br />
+<br />
+
+<div style="position: relative;">
+    <img src="~/Images/FrenchBuldogTop.png"
+         style="width: 15rem; position: absolute; top: -11.5rem; left: 20%; transform: translateX(-50%);" />
+    <hr />
+</div>
+
+<div class="container rounded col-md-8  bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-8 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Customer Information</h4>
+                </div>
+                <form asp-action="Checkout" method="post" enctype="multipart/form-data">
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <input asp-for="@Model.FirstName" class="form-control mt-2" type="text" placeholder="First Name" aria-required="true" />
+                            <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <input asp-for="@Model.LastName" class="form-control mt-2" type="text" placeholder="Last Name" aria-required="true" />
+                            <span asp-validation-for="@Model.LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <input asp-for="@Model.Phone" class="form-control" type="text" placeholder="Phone" aria-required="true" />
+                            <span asp-validation-for="@Model.Phone" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <input asp-for="@Model.City" class="form-control  mt-2" type="text" placeholder="City" aria-required="true" />
+                            <span asp-validation-for="@Model.City" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <input asp-for="@Model.PostalCode" class="form-control mt-2" type="text" placeholder="Postal Code" aria-required="true" />
+                            <span asp-validation-for="@Model.PostalCode" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="mt-5 text-center">
+                        <input class="btn btn-warning btn-outline-secondary float-end" type="submit" value="Order Confirmation" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center experience">
+                    <span class="h4">Order Information</span>
+                </div>
+                <br>
+                @foreach (var book in cart!.Books)
+                {
+                    <div class="col-md-12">
+                        <label>@book.Title x @book.Quantity</label>
+                    </div>
+                    <br>
+                }
+                <div class="col-md-12">
+                    <hr />
+                    <p class="h5">Total Price: $@cart.TotalPrice.ToString("f2")</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

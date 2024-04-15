@@ -4,10 +4,12 @@ using TheReader.Core.Models.Genre;
 using static TheReader.Infrastructure.Constants.NotificationMessagesConstants;
 using TheReader.Infrastructure.Constants;
 using Microsoft.AspNetCore.Authorization;
+using TheReader.Core.Contracts.Genre;
 
 namespace Bookshop___The_Reader.Controllers
 {
-	public class GenreController : Controller
+	[Authorize]
+    public class GenreController : Controller
 	{
 		private readonly IBookService bookService;
 		private readonly IGenreService genreService;
@@ -81,37 +83,33 @@ namespace Bookshop___The_Reader.Controllers
 			return RedirectToAction("All", "Genre");
 		}
 
-		//[HttpGet]
-		//public async Task<IActionResult> Edit(int id)
-		//{
-		//	var currCategory = await genreService.GetGenreByIdAsync(id);
-		//	return View(currCategory);
-		//}
+		[HttpGet]
+		public async Task<IActionResult> Delete(int id)
+		{
 
-		//[HttpPost]
-		//public async Task<IActionResult> Edit(int id, NewGenreViewModel categoryModel)
-		//{
+			if (!await genreService.IsGenreExistAsync(id))
+			{
+				return BadRequest();
+			}
 
+			var searchedGenre = genreService.DeleteGenreAsync(id);
 
-		//	if (!ModelState.IsValid)
-		//	{
-		//		TempData[ErrorMessage] = "An unexpected error occurred! Please, try again.";
+			return View(searchedGenre);
+		}
+		[HttpPost]
 
-		//		return View(categoryModel);
-		//	}
+		public async Task<IActionResult> DeleteConfirmed(int id)
+		{
 
-		//	try
-		//	{
-		//		await genreService.EditGenreAsync(id, categoryModel);
-		//	}
-		//	catch (Exception)
-		//	{
-		//		return GeneralErrorMessage();
-		//	}
+			if (!await genreService.IsGenreExistAsync(id))
+			{
+				return BadRequest();
+			}
+			await genreService.DeleteGenreConfirmAsync(id);
 
-		//	TempData[SuccessMessage] = "You edited the genre successfully.";
-		//	return RedirectToAction("All", "Genre");
-		//}
+			return RedirectToAction("All", "Genre");
+		}
+
 		private IActionResult GeneralErrorMessage()
 		{
 			TempData[ErrorMessage] = "An unexpected error occurred! Please, try again.";

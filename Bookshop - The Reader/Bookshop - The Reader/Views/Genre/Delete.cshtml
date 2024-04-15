@@ -1,0 +1,55 @@
+﻿@model DeleteGenreViewModel
+
+@{
+	ViewBag.Title = "Delete the genre";
+}
+
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-body text-center">
+					<
+					<h2 class="card-title" style="margin-top: 15px;">@Model.Name</h2>
+					<p class="text-danger mt-3">Сигурен ли си, че искаш да изтриеш тази книга?</p>
+				</div>
+				<div class="card-footer">
+					<form asp-action="DeleteConfirmed" method="post">
+						<input type="hidden" asp-for="Id" />
+						<button type="submit" class="btn btn-danger">Confirm Delete</button>
+						<a asp-controller="Genre" asp-action="All" class="btn btn-secondary">Cancel</a>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+	body {
+		background-color: #f8f9fa;
+	}
+
+	.container {
+		margin-top: 50px;
+	}
+
+	.card {
+		background-color: #fff;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	}
+
+	.text-danger {
+		color: #dc3545;
+	}
+
+	.btn-danger {
+		background-color: #dc3545;
+		border-color: #dc3545;
+	}
+
+	.btn-secondary {
+		background-color: #6c757d;
+		border-color: #6c757d;
+	}
+</style>

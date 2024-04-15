@@ -99,7 +99,16 @@
             public const double TotalPriceMaxLength = 10000.00;
         }
 
-        public static class CommentConstants
+		public static class CartConstants
+		{
+			public const string TotalPriceMinValue = "0";
+			public const string TotalPriceMaxValue = "2000000000";
+
+			public const string QuantityMinValue = "0";
+			public const string QuantityMaxValue = "100";
+		}
+
+		public static class CommentConstants
         {
             //Text
             public const int TextMinLength = 10;

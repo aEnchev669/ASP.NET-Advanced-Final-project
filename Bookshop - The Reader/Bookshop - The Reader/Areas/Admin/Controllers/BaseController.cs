@@ -6,7 +6,7 @@ namespace Bookshop___The_Reader.Areas.Admin.Controllers
 {
 	[Area(AreaName)]
 	[Route(RouteName)]
-	//[Authorize(Roles = AdminRoleName)]
+	[Authorize(Roles = AdminRoleName)]
 	public class BaseController : Controller
 	{
 	}

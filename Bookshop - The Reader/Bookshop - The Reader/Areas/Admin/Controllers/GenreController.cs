@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TheReader.Core.Contracts.Book;
+using TheReader.Core.Contracts.Genre;
 using TheReader.Core.Models.Genre;
 using static TheReader.Infrastructure.Constants.NotificationMessagesConstants;
 

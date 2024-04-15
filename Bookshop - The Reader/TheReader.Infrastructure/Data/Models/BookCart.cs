@@ -9,6 +9,11 @@ namespace TheReader.Infrastructure.Data.Models
 	[Comment("The cart with books")]
 	public class BookCart
 	{
+		public BookCart()
+		{
+			Quantity = 1;
+		}
+
 		[Required]
 		[Comment("The Current book's ientifier")]
 		public int BookId { get; set; }
@@ -24,5 +29,7 @@ namespace TheReader.Infrastructure.Data.Models
 		[ForeignKey(nameof(CartId))]
 		[Comment("The current cart")]
 		public Cart Cart { get; set; } = null!;
+
+		public int Quantity { get; set; }
 	}
 }

@@ -1,6 +1,7 @@
-﻿using TheReader.Core.Models.Genre;
+﻿using TheReader.Core.Models.Book;
+using TheReader.Core.Models.Genre;
 
-namespace TheReader.Core.Contracts.Book
+namespace TheReader.Core.Contracts.Genre
 {
     public interface IGenreService
     {
@@ -11,7 +12,9 @@ namespace TheReader.Core.Contracts.Book
         Task SoftDeleteGenreAsync(int genreId);
         Task<NewGenreViewModel> GetGenreByIdAsync(int genreId);
         Task<NewGenreViewModel> GetGenreByNameAsync(string name);
-		//Task EditGenreAsync(int cateogryId, NewGenreViewModel categoryModel);
+        DeleteGenreViewModel DeleteGenreAsync(int bookId);
+        Task<int> DeleteGenreConfirmAsync(int bookId);
+        //Task EditGenreAsync(int cateogryId, NewGenreViewModel categoryModel);
 
-	}
+    }
 }

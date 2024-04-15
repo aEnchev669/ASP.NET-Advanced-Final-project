@@ -240,6 +240,9 @@ namespace TheReader.Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasComment("The current cart idetifier");
 
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
                     b.HasKey("BookId", "CartId");
 
                     b.HasIndex("CartId");
@@ -292,9 +295,6 @@ namespace TheReader.Infrastructure.Migrations
                         .HasColumnType("nvarchar(30)")
                         .HasComment("The current Book language");
 
-                    b.Property<int?>("OrderId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Pages")
                         .HasColumnType("int")
                         .HasComment("The current Book's pages count");
@@ -322,8 +322,6 @@ namespace TheReader.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("GenreId");
-
-                    b.HasIndex("OrderId");
 
                     b.ToTable("Books");
 
@@ -498,6 +496,9 @@ namespace TheReader.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)")
@@ -521,6 +522,9 @@ namespace TheReader.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int>("CartId")
+                        .HasColumnType("int");
+
                     b.Property<string>("City")
                         .IsRequired()
                         .HasMaxLength(80)
@@ -530,12 +534,6 @@ namespace TheReader.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2")
                         .HasComment("Creation date of the current order");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasComment("Email of the creator of the current order");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -561,12 +559,6 @@ namespace TheReader.Infrastructure.Migrations
                         .HasColumnType("nvarchar(4)")
                         .HasComment("PostalCode of the creator of the current order");
 
-                    b.Property<string>("Street")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasComment("Street of the creator of the current order");
-
                     b.Property<decimal>("TotalPrice")
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)")
@@ -577,6 +569,8 @@ namespace TheReader.Infrastructure.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CartId");
 
                     b.HasIndex("UserId");
 
@@ -688,44 +682,44 @@ namespace TheReader.Infrastructure.Migrations
                         {
                             Id = "17eb4845-eeb1-4fbe-9d2b-324e2ab92c93",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b73fc818-536d-4e97-ac87-272c0d54101b",
+                            ConcurrencyStamp = "7c9ed8e9-5793-4973-95eb-203f71aa40b5",
                             Email = "Admin@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@gmail.com",
                             NormalizedUserName = "ADMIN231",
-                            PasswordHash = "AQAAAAEAACcQAAAAEItz2Afa4b7762erRAf8ZcjF+f+BF3e2QrmIsZ5pFG6x5yEZG30rLV+wZux+VKcM3w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPm3QC0XRL5pwR9WEA3LFDRK4lRZJ2JfaDKX7/kxo29/+Cc8WrQYW3xJswVRBwsyKg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b89dc96c-4081-4ea8-8e42-1b67b0959d40",
+                            SecurityStamp = "417d21a9-5c76-4ae4-b5a4-b5d801d7d65c",
                             TwoFactorEnabled = false,
                             UserName = "admin231",
                             FirstName = "Admin",
                             Gender = 0,
                             IsDeleted = false,
                             LastName = "Adminov",
-                            RegistrationDate = new DateTime(2024, 4, 9, 21, 37, 58, 422, DateTimeKind.Local).AddTicks(6652)
+                            RegistrationDate = new DateTime(2024, 4, 14, 20, 19, 38, 733, DateTimeKind.Local).AddTicks(957)
                         },
                         new
                         {
                             Id = "641ca250-7c7a-40a5-8e3c-657714fb3d4a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "6ce0fa74-039d-423c-adbd-973d5a572e41",
+                            ConcurrencyStamp = "c9338d85-0390-45dd-9c41-b2c9c3930c41",
                             Email = "guest231@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "GUEST231@gmail.com",
                             NormalizedUserName = "GUEST231",
-                            PasswordHash = "AQAAAAEAACcQAAAAEL7tNJzffcTwe58DP0+pekhDgiJ4wZw2K/wZwOLYh3V38i72SAURLlOp5atOOiW01Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAED0nCrxmMKWDDUJoNTIwusY9OoGCsauV6dsxrllHTdRUiqrCoRcYGec3WqkWD2vk2w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "499fd89c-2883-42c7-8c79-d0768f750caa",
+                            SecurityStamp = "6b041b8f-0b1f-427a-b005-187b906bff62",
                             TwoFactorEnabled = false,
                             UserName = "Guest231",
-                            BirthDate = new DateTime(2024, 4, 9, 21, 37, 58, 424, DateTimeKind.Local).AddTicks(636),
+                            BirthDate = new DateTime(2024, 4, 14, 20, 19, 38, 734, DateTimeKind.Local).AddTicks(3527),
                             FirstName = "Guest",
                             Gender = 1,
                             IsDeleted = false,
                             LastName = "Guestov",
-                            RegistrationDate = new DateTime(2024, 4, 9, 21, 37, 58, 424, DateTimeKind.Local).AddTicks(628)
+                            RegistrationDate = new DateTime(2024, 4, 14, 20, 19, 38, 734, DateTimeKind.Local).AddTicks(3519)
                         });
                 });
 
@@ -807,10 +801,6 @@ namespace TheReader.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TheReader.Infrastructure.Data.Models.Orders.Order", null)
-                        .WithMany("OrderItems")
-                        .HasForeignKey("OrderId");
-
                     b.Navigation("Genre");
                 });
 
@@ -827,11 +817,19 @@ namespace TheReader.Infrastructure.Migrations
 
             modelBuilder.Entity("TheReader.Infrastructure.Data.Models.Orders.Order", b =>
                 {
+                    b.HasOne("TheReader.Infrastructure.Data.Models.Carts.Cart", "Cart")
+                        .WithMany()
+                        .HasForeignKey("CartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("TheReader.Infrastructure.Data.Models.Account.ApplicationUser", "User")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Cart");
 
                     b.Navigation("User");
                 });
@@ -887,11 +885,6 @@ namespace TheReader.Infrastructure.Migrations
             modelBuilder.Entity("TheReader.Infrastructure.Data.Models.Carts.Cart", b =>
                 {
                     b.Navigation("BooksCarts");
-                });
-
-            modelBuilder.Entity("TheReader.Infrastructure.Data.Models.Orders.Order", b =>
-                {
-                    b.Navigation("OrderItems");
                 });
 
             modelBuilder.Entity("TheReader.Infrastructure.Data.Models.Account.ApplicationUser", b =>

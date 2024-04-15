@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TheReader.Core.Contracts.Book;
+using TheReader.Core.Contracts.Genre;
 using TheReader.Core.Models.Book;
 using TheReader.Core.Services;
 using TheReader.Infrastructure.Constants;
@@ -9,7 +10,7 @@ using static TheReader.Infrastructure.Constants.NotificationMessagesConstants;
 
 namespace Bookshop___The_Reader.Controllers
 {
-	[Authorize]
+    [Authorize]
 	public class BookController : Controller
 	{
 		private readonly IBookService bookService;
@@ -160,7 +161,7 @@ namespace Bookshop___The_Reader.Controllers
 		{
 			TempData[ErrorMessage] = "An unexpected error occurred! Please, try again.";
 
-			return RedirectToAction("All", "Genre");
+			return RedirectToAction("All", "Book");
 		}
 	}
 }

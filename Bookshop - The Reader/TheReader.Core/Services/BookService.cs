@@ -10,20 +10,10 @@ namespace TheReader.Core.Services
 	public class BookService : IBookService
 	{
 		private readonly TheReaderDbContext dbContext;
-		private readonly IBookService bookService;
 
 		public BookService(TheReaderDbContext _dbContext)
 		{
 			dbContext = _dbContext;
-		}
-
-		public Task<AllBooksFilteredAndPagedServiceModel> AllActiveBooksQueryAsync(AllBooksQueryModel queryModel)
-		{
-			//    IQueryable<Book> bookQuery = dbContext
-			////        .Books
-			////        .Where(b => b.IsDeleted == false)
-			////        .AsQueryable();
-			throw new NotImplementedException();
 		}
 
 		public async Task<IEnumerable<AllBooksViewModel>> AllBooksAsync()

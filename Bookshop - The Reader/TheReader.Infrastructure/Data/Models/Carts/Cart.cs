@@ -19,8 +19,8 @@ namespace TheReader.Infrastructure.Data.Models.Carts
 		[ForeignKey(nameof(UserId))]
 		[Comment("The current user")]
 		public ApplicationUser User { get; set; } = null!;
+		public DateTime CreatedOn { get; set; } = DateTime.UtcNow;
 
-		[Required]
 		[Comment("Collection of all books in the current cart")]
 		public ICollection<BookCart> BooksCarts { get; set; } = new HashSet<BookCart>();
     }

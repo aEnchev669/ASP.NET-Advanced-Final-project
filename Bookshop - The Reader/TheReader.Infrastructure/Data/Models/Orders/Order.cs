@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using TheReader.Infrastructure.Data.Models.Account;
 using TheReader.Infrastructure.Data.Models.Books;
+using TheReader.Infrastructure.Data.Models.Carts;
 using static TheReader.Infrastructure.Constants.DataConstants;
 
 namespace TheReader.Infrastructure.Data.Models.Orders
@@ -24,11 +26,6 @@ namespace TheReader.Infrastructure.Data.Models.Orders
 		public string LastName { get; set; } = string.Empty;
 
 		[Required]
-		[MaxLength(OrderConstants.EmailMaxLength)]
-		[Comment("Email of the creator of the current order")]
-		public string Email { get; set; } = string.Empty;
-
-		[Required]
 		[MaxLength(OrderConstants.PhoneMaxLength)]
 		[Comment("Phone number of the creator of the current order")]
 		public string Phone { get; set; } = string.Empty;
@@ -44,11 +41,6 @@ namespace TheReader.Infrastructure.Data.Models.Orders
 		public string PostalCode { get; set; } = string.Empty;
 
 		[Required]
-		[MaxLength(OrderConstants.StreetMaxLength)]
-		[Comment("Street of the creator of the current order")]
-		public string Street { get; set; } = string.Empty;
-
-		[Required]
 		[Comment("Creation date of the current order")]
 		public DateTime CreatedOn { get; set; } = DateTime.Now;
 
@@ -56,12 +48,17 @@ namespace TheReader.Infrastructure.Data.Models.Orders
 		[Comment("The total of the current order")]
 		public decimal TotalPrice { get; set; }
 
+		[ForeignKey(nameof(User))]
+		public string UserId { get; set; } = null!;
+
 		[Required]
 		[Comment("The creator of the current order")]
 		public ApplicationUser User { get; set; } = null!;
 
-		[Required]
-		[Comment("All items in the current order")]
-		public ICollection<Book> OrderItems { get; set; } = new HashSet<Book>();
+        [Required]
+		public Cart Cart { get; set; } = null!;
+
+		[ForeignKey(nameof(Cart))]
+		public int CartId { get; set; }
 	}
 }
