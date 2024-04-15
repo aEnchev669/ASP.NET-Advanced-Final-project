@@ -1,0 +1,59 @@
+﻿@model CartFormViewModel
+
+@{
+    ViewBag.Title = "Order Details";
+}
+
+<div class="d-flex justify-content-center">
+    <h2>@ViewBag.Title</h2>
+</div>
+<hr />
+
+<div class="d-flex justify-content-center">
+        <div class="col-md-6">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Book</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var book in @Model.Books)
+                    {
+                        <tr>
+                            <td>@book.Title</td>
+                            <td>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal-@book.BookId">
+                                    @book.Image
+                                </a>
+                            </td>
+                            <td>$@book.Price.ToString("f2")</td>
+                            <td>@book.Quantity</td>
+                            <td>$@book.TotalPrice.ToString("f2")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        <div class="mt-5">
+            <a asp-controller="Order" asp-action="OrderHistory" class="btn btn-primary profile-button" type="button">Back</a>
+        </div>
+        </div>
+    </div>
+
+
+@foreach (var book in @Model.Books)
+{
+    <div class="modal fade" id="imageModal-@book.BookId" tabindex="-1" aria-labelledby="imageModalLabel-@book.BookId" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <img src="~/Images/@book.Image" alt="Item Image" class="img-fluid" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
