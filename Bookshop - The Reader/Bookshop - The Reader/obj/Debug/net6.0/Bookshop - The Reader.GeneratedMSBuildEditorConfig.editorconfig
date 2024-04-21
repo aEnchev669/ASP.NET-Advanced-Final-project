@@ -16,30 +16,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\aench\OneDrive\Документи\GitHub\ASP.NET-Advanced---Final-project\Bookshop - The Reader\Bookshop - The Reader
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Areas/Identity/Pages/Account/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Areas/Identity/Pages/Account/Register.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Areas/Identity/Pages/Account/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Areas/Identity/Pages/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Areas/Identity/Pages/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Views/Book/AddBook.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xBZGRCb29rLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -80,8 +56,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2VucmVcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Views/Home/Error400.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFcnJvcjQwMC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Views/Home/Error401.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFcnJvcjQwMS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Views/Home/Error404.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFcnJvcjQwNC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Views/Home/Error500.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFcnJvcjUwMC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Views/Home/﻿﻿Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVzvu7/vu79FcnJvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Views/Order/Checkout.cshtml]
@@ -114,6 +110,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Views/User/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Views/User/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Views/User/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Views/User/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Views/User/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/aench/OneDrive/Документи/GitHub/ASP.NET-Advanced---Final-project/Bookshop - The Reader/Bookshop - The Reader/Views/_ViewImports.cshtml]

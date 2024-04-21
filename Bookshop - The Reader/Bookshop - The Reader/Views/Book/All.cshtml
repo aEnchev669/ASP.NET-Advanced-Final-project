@@ -10,37 +10,50 @@
 <h2 class="text-center">@ViewBag.Title</h2>
 <hr />
 
-
-<div class="text-center row">
-	@foreach (var book in Model)
-	{
-		<div class="card col-4" style="width: 20rem; ">
-			<img class="card-img-top" style="width: 18rem;"
-				 src="@book.ImageURL" alt="Book Image">
-			<div class="card-body">
-
-				<a  asp-controller="Book" asp-action="Edit" asp-route-id="@book.Id">
-					<i class="fa-solid fa-pen-to-square"></i>
-				</a>
-				<a  asp-controller="Book" asp-action="Delete" asp-route-id="@book.Id">
-					<i class="fa-solid fa-trash"></i>
-				</a>
-
-				<h5 class="card-title mt-1">@book.Title</h5>
-				<h4 class="card-title mt-1">@book.Author</h4>
-				<p class="mb-0">Price: €@book.Price</p>
-				<a asp-controller="Book" asp-action="Details" asp-route-Id="@book.Id">
-					<input type="submit" value="Details" class="fs-6 btn btn-success mb-3 p-2" />
+@if (User.Identity?.IsAuthenticated == true)
+{
+	
+	<div class="text-center row">
+		@foreach (var book in Model)
+		{
+			<div class="form-group col-md-3">
+				<label asp-for="@book.Title"></label>
+				<input asp-for="@book.Title" class="form-control" placeholder="Търси...">
+				<a href="/Book/Details" class="btn btn-sm" style="color: #234476">
+					<input type="submit" value="Search" class="fs-6 btn btn-success mb-3 p-2" />
 				</a>
 			</div>
-		</div>
-	}
-	
-		<a href="/Book/AddBook" class="btn btn-sm" style="color: #234476">
-			<input type="submit" value="Add new Book" class="fs-6 btn btn-success mb-3 p-2" />
-		</a>
-	
-</div>
+			<div class="card col-4" style="width: 20rem; ">
+				<img class="card-img-top" style="width: 18rem;"
+					 src="@book.ImageURL" alt="Book Image">
+				<div class="card-body">
+					@if (User.IsInRole("Administrator"))
+					{
+						<a asp-controller="Book" asp-action="Edit" asp-route-id="@book.Id">
+							<i class="fa-solid fa-pen-to-square"></i>
+						</a>
+						<a asp-controller="Book" asp-action="Delete" asp-route-id="@book.Id">
+							<i class="fa-solid fa-trash"></i>
+						</a>
+					}
+					<h5 class="card-title mt-1">@book.Title</h5>
+					<h4 class="card-title mt-1">@book.Author</h4>
+					<p class="mb-0">Price: €@book.Price</p>
+					<a asp-controller="Book" asp-action="Details" asp-route-Id="@book.Id">
+						<input type="submit" value="Details" class="fs-6 btn btn-success mb-3 p-2" />
+					</a>
+				</div>
+			</div>
+		}
+		@if (User.IsInRole("Administrator"))
+		{
+			<a href="/Book/AddBook" class="btn btn-sm" style="color: #234476">
+				<input type="submit" value="Add new Book" class="fs-6 btn btn-success mb-3 p-2" />
+			</a>
+		}
+
+	</div>
+}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"></script>
 <script src="~/lib/toastr/toastr.min.js"></script>

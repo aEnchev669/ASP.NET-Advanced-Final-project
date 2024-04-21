@@ -1,13 +1,12 @@
 ﻿using BookshopTheReader.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using TheReader.Core.Contracts.Genre;
-using TheReader.Core.Models.Book;
 using TheReader.Core.Models.Genre;
 using TheReader.Infrastructure.Data.Models.Books;
 
 namespace TheReader.Core.Services
 {
-    public class GenreService : IGenreService
+	public class GenreService : IGenreService
 	{
 		private readonly TheReaderDbContext dbContext;
 		public GenreService(TheReaderDbContext _context)

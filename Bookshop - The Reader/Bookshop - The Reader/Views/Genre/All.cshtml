@@ -4,34 +4,43 @@
 	ViewData["Title"] = "All Genres";
 }
 
-<h2 class="text-center">All Genres</h2>
+@if (User.Identity?.IsAuthenticated == true)
+{
+	<h2 class="text-center">All Genres</h2>
 
-<hr />
+	<hr />
 
-<div class="row">
-	@foreach (var genre in Model)
-	{
-		<div class="col-md-3 text-center categoryBottom">
-			<a asp-controller="Genre" asp-action="Books" asp-route-name="@genre.Name">
-				<div class="card list-group-item-action">
+	<div class="row">
+		@foreach (var genre in Model)
+		{
+			<div class="col-md-3 text-center categoryBottom">
+				<a asp-controller="Genre" asp-action="Books" asp-route-name="@genre.Name">
+					<div class="card list-group-item-action">
 
-					<div class="card-body">
-						<p class="card-text">@genre.Name </p>
+						<div class="card-body">
+							<p class="card-text">@genre.Name </p>
+						</div>
+
 					</div>
-					
-				</div>
-				<div>
-					<a asp-controller="Genre" asp-action="Delete" asp-route-id="@genre.Id" class="btn btn-danger mb-1 me-1 me-md-2 w-100 p-3 fw-bold">Delete</a>
-				</div>
-			</a>
+					@if (User.IsInRole("Administrator"))
+					{
+						<div>
+							<a asp-controller="Genre" asp-action="Delete" asp-route-id="@genre.Id" class="btn btn-danger mb-1 me-1 me-md-2 w-100 p-3 fw-bold">Delete</a>
+						</div>
+					}
+				</a>
 
-		</div>
-	}
-	
-		<div>
-			<a href="/Genre/Add" class="btn btn-sm" style="color: #234476">
-				<input type="submit" value="Add new Genre" class="fs-6 btn btn-success mb-3 p-2" />
-			</a>
-		</div>
-	
-</div>
+			</div>
+		}
+
+		@if (User.IsInRole("Administrator"))
+		{
+			<div>
+				<a href="/Genre/Add" class="btn btn-sm" style="color: #234476">
+					<input type="submit" value="Add new Genre" class="fs-6 btn btn-success mb-3 p-2" />
+				</a>
+			</div>
+		}
+
+	</div>
+}

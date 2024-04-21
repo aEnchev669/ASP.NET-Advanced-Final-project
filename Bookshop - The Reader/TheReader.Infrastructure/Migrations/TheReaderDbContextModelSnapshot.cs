@@ -579,45 +579,6 @@ namespace TheReader.Infrastructure.Migrations
                     b.HasComment("Order");
                 });
 
-            modelBuilder.Entity("TheReader.Infrastructure.Data.Models.Review.Comment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasComment("Current comment Identifier");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("BookId")
-                        .HasColumnType("int")
-                        .HasComment("Book identifier");
-
-                    b.Property<DateTime>("DatePosted")
-                        .HasColumnType("datetime2")
-                        .HasComment("The date of creation of the current comemnt");
-
-                    b.Property<string>("Text")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
-                        .HasComment("Current comment text");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)")
-                        .HasComment("User identifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BookId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Comments");
-
-                    b.HasComment("Current Comment");
-                });
-
             modelBuilder.Entity("TheReader.Infrastructure.Data.Models.UserProduct", b =>
                 {
                     b.Property<string>("ApplicationUserId")
@@ -682,44 +643,44 @@ namespace TheReader.Infrastructure.Migrations
                         {
                             Id = "17eb4845-eeb1-4fbe-9d2b-324e2ab92c93",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7c9ed8e9-5793-4973-95eb-203f71aa40b5",
+                            ConcurrencyStamp = "46680643-adfc-4e57-87de-e0655c8fdc32",
                             Email = "Admin@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@gmail.com",
                             NormalizedUserName = "ADMIN231",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPm3QC0XRL5pwR9WEA3LFDRK4lRZJ2JfaDKX7/kxo29/+Cc8WrQYW3xJswVRBwsyKg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBasXHBwJhUTl5VHLZzK0LnFeial0G7sF0fH2XAlbkmsYF6qs7gmg3FxYXqOZUPc2g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "417d21a9-5c76-4ae4-b5a4-b5d801d7d65c",
+                            SecurityStamp = "1ad806f9-72da-456c-94fb-cd75a30e31f1",
                             TwoFactorEnabled = false,
                             UserName = "admin231",
                             FirstName = "Admin",
                             Gender = 0,
                             IsDeleted = false,
                             LastName = "Adminov",
-                            RegistrationDate = new DateTime(2024, 4, 14, 20, 19, 38, 733, DateTimeKind.Local).AddTicks(957)
+                            RegistrationDate = new DateTime(2024, 4, 20, 8, 22, 14, 504, DateTimeKind.Local).AddTicks(5326)
                         },
                         new
                         {
                             Id = "641ca250-7c7a-40a5-8e3c-657714fb3d4a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c9338d85-0390-45dd-9c41-b2c9c3930c41",
+                            ConcurrencyStamp = "549cece1-68e4-4adb-8194-ada35c41f553",
                             Email = "guest231@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "GUEST231@gmail.com",
                             NormalizedUserName = "GUEST231",
-                            PasswordHash = "AQAAAAEAACcQAAAAED0nCrxmMKWDDUJoNTIwusY9OoGCsauV6dsxrllHTdRUiqrCoRcYGec3WqkWD2vk2w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJDguLFSZtvJg6g+Lhn8hMe6IgBoQvV3xLBzJ6PDGSQ/9kt9HTLvUWMob7R4lduGZw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6b041b8f-0b1f-427a-b005-187b906bff62",
+                            SecurityStamp = "8b504d36-0ffc-400d-bcc5-099c782bf47f",
                             TwoFactorEnabled = false,
                             UserName = "Guest231",
-                            BirthDate = new DateTime(2024, 4, 14, 20, 19, 38, 734, DateTimeKind.Local).AddTicks(3527),
+                            BirthDate = new DateTime(2024, 4, 20, 8, 22, 14, 505, DateTimeKind.Local).AddTicks(8953),
                             FirstName = "Guest",
                             Gender = 1,
                             IsDeleted = false,
                             LastName = "Guestov",
-                            RegistrationDate = new DateTime(2024, 4, 14, 20, 19, 38, 734, DateTimeKind.Local).AddTicks(3519)
+                            RegistrationDate = new DateTime(2024, 4, 20, 8, 22, 14, 505, DateTimeKind.Local).AddTicks(8945)
                         });
                 });
 
@@ -834,29 +795,10 @@ namespace TheReader.Infrastructure.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("TheReader.Infrastructure.Data.Models.Review.Comment", b =>
-                {
-                    b.HasOne("TheReader.Infrastructure.Data.Models.Books.Book", "Book")
-                        .WithMany("Comments")
-                        .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("TheReader.Infrastructure.Data.Models.Account.ApplicationUser", "User")
-                        .WithMany("Comments")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Book");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("TheReader.Infrastructure.Data.Models.UserProduct", b =>
                 {
                     b.HasOne("TheReader.Infrastructure.Data.Models.Account.ApplicationUser", "ApplicationUser")
-                        .WithMany("Cart")
+                        .WithMany()
                         .HasForeignKey("ApplicationUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -872,11 +814,6 @@ namespace TheReader.Infrastructure.Migrations
                     b.Navigation("Book");
                 });
 
-            modelBuilder.Entity("TheReader.Infrastructure.Data.Models.Books.Book", b =>
-                {
-                    b.Navigation("Comments");
-                });
-
             modelBuilder.Entity("TheReader.Infrastructure.Data.Models.Books.Genre", b =>
                 {
                     b.Navigation("Books");
@@ -889,10 +826,6 @@ namespace TheReader.Infrastructure.Migrations
 
             modelBuilder.Entity("TheReader.Infrastructure.Data.Models.Account.ApplicationUser", b =>
                 {
-                    b.Navigation("Cart");
-
-                    b.Navigation("Comments");
-
                     b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618

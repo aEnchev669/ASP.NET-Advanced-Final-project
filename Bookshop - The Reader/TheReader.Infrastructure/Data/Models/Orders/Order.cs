@@ -2,7 +2,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using TheReader.Infrastructure.Data.Models.Account;
-using TheReader.Infrastructure.Data.Models.Books;
 using TheReader.Infrastructure.Data.Models.Carts;
 using static TheReader.Infrastructure.Constants.DataConstants;
 
@@ -55,7 +54,7 @@ namespace TheReader.Infrastructure.Data.Models.Orders
 		[Comment("The creator of the current order")]
 		public ApplicationUser User { get; set; } = null!;
 
-        [Required]
+		[Required]
 		public Cart Cart { get; set; } = null!;
 
 		[ForeignKey(nameof(Cart))]

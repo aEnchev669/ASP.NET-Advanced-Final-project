@@ -6,31 +6,36 @@
 @{
 	ViewBag.Title = "Books";
 }
-
-<link rel="stylesheet" href="~/css/cards.css" asp-append-version="true" />
-@if (!Model.Any())
+@if (User.Identity?.IsAuthenticated == true)
 {
-	<h2 class="text-center">No products in this category yet!</h2>
-}
-<div class="row">
-	@foreach (var book in Model)
+	<link rel="stylesheet" href="~/css/cards.css" asp-append-version="true" />
+	@if (!Model.Any())
 	{
-		<div class="col-md-6 col-lg-4 col-xl-3 mb-4">
-			<div class="card h-100">
-				<a asp-controller="Book" asp-action="Details" asp-route-id="@book.Id" class="card-link">
-					<div class="card-img-container">
-						<img class="card-img-top" src="@book.ImageUrl" alt="Book Image">
+		<h2 class="text-center">No products in this category yet!</h2>
+	}
+	<div class="row">
+		@foreach (var book in Model)
+		{
+			<div class="col-md-6 col-lg-4 col-xl-3 mb-4">
+				<div class="card h-100">
+					<a asp-controller="Book" asp-action="Details" asp-route-id="@book.Id" class="card-link">
+						<div class="card-img-container">
+							<img class="card-img-top" src="@book.ImageUrl" alt="Book Image">
+						</div>
+					</a>
+					@if (!User.IsInRole("Administrator"))
+					{
+						<div class="card-body text-center">
+							<h4>@book.Title</h4>
+						<p class="mb-3 h5">Price: $@book.Price</p>
+						<form asp-controller="Cart" asp-action="Add" asp-route-id="@book.Id" method="post" class="mb-2">
+							<button type="submit" class="btn btn-sm"><i class="fas fa-cart-plus custom-icon" style="color: #234476"></i>Add to Cart</button>
+						</form>
 					</div>
-				</a>
-				<div class="card-body text-center">
-					<h4>@book.Title</h4>
-					<p class="mb-3 h5">Price: $@book.Price</p>
-					<form asp-controller="Cart" asp-action="Add" asp-route-id="@book.Id" method="post" class="mb-2">
-						<button type="submit" class="btn btn-sm"><i class="fas fa-cart-plus custom-icon" style="color: #234476"></i>Add to Cart</button>
-					</form>
+					}
 				</div>
 			</div>
-		</div>
 
-	}
-</div>
+		}
+	</div>
+}

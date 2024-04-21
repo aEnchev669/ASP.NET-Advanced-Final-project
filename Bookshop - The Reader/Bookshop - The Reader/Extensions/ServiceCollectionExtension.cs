@@ -6,7 +6,9 @@ using TheReader.Core.Contracts.Book;
 using TheReader.Core.Contracts.Cart;
 using TheReader.Core.Contracts.Genre;
 using TheReader.Core.Contracts.Order;
+using TheReader.Core.Contracts.User;
 using TheReader.Core.Services;
+using TheReader.Infrastructure.Data.Models.Account;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -18,6 +20,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<IGenreService, GenreService>();
             services.AddScoped<ICartService, CartService>();
             services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IUserService, UserService>();
 
 
             return services;
@@ -34,16 +37,15 @@ namespace Microsoft.Extensions.DependencyInjection
         }
         public static IServiceCollection AddApplicationIdentity(this IServiceCollection services, IConfiguration config)
         {
-
             services
-                .AddDefaultIdentity<IdentityUser>(options =>
+                .AddDefaultIdentity<ApplicationUser>(options =>
                 {
                     options.SignIn.RequireConfirmedAccount = false;
+                    options.Password.RequireDigit = true;
                     options.Password.RequireNonAlphanumeric = false;
-                    options.Password.RequireDigit = false;
-                    options.Password.RequireUppercase = false;
+                    options.Password.RequireUppercase = true;
                 })
-                //.AddRoles<IdentityRole>()
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<TheReaderDbContext>();
 
 

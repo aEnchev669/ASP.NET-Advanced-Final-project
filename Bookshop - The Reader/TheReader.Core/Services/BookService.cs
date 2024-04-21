@@ -18,9 +18,6 @@ namespace TheReader.Core.Services
 
 		public async Task<IEnumerable<AllBooksViewModel>> AllBooksAsync()
 		{
-
-
-
 			var allBooks = await dbContext
 						 .Books
 						 .AsNoTracking()
@@ -182,6 +179,7 @@ namespace TheReader.Core.Services
 		{
 			return await dbContext
 				.Books
+				.Where(b => b.IsDeleted == false)
 				.OrderByDescending(x => x.Id)
 				.Take(4)
 				.Select(x => new BookServiceIndexModel
@@ -208,10 +206,6 @@ namespace TheReader.Core.Services
 				Title = book.Title,
 				ImageUrl = book.ImageUrl,
 			};
-
-			
-
-
 
 			return deleteBook;
 		}

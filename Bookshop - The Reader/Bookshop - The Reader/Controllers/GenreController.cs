@@ -1,15 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TheReader.Core.Contracts.Book;
+using TheReader.Core.Contracts.Genre;
 using TheReader.Core.Models.Genre;
 using static TheReader.Infrastructure.Constants.NotificationMessagesConstants;
-using TheReader.Infrastructure.Constants;
-using Microsoft.AspNetCore.Authorization;
-using TheReader.Core.Contracts.Genre;
 
 namespace Bookshop___The_Reader.Controllers
 {
 	[Authorize]
-    public class GenreController : Controller
+	public class GenreController : Controller
 	{
 		private readonly IBookService bookService;
 		private readonly IGenreService genreService;
@@ -19,6 +18,8 @@ namespace Bookshop___The_Reader.Controllers
 			bookService = _bookService;
 			genreService = _genreService;
 		}
+
+	
 		public async Task<IActionResult> All()
 		{
 			var genres = await genreService.AllGenresAsync();
@@ -30,18 +31,17 @@ namespace Bookshop___The_Reader.Controllers
 			return View(genres);
 		}
 
+		
 		public async Task<IActionResult> Books(string name)
 		{
-			
-				var items = await bookService.AllIBooksByChoosenGenreAsync(name);
+			var items = await bookService.AllIBooksByChoosenGenreAsync(name);
 
-				return View(items);
-		
-			
+			return View(items);
 		}
 
-		
+
 		[HttpGet]
+		[Authorize(Roles = "Administrator")]
 		public IActionResult Add()
 		{
 			var genreModel = new NewGenreViewModel();
@@ -49,8 +49,9 @@ namespace Bookshop___The_Reader.Controllers
 			return View(genreModel);
 		}
 
-		
+
 		[HttpPost]
+		[Authorize(Roles = "Administrator")]
 		public async Task<IActionResult> Add(NewGenreViewModel genreModel)
 		{
 			bool isGenreExist = await genreService
@@ -84,6 +85,7 @@ namespace Bookshop___The_Reader.Controllers
 		}
 
 		[HttpGet]
+		[Authorize(Roles = "Administrator")]
 		public async Task<IActionResult> Delete(int id)
 		{
 
@@ -96,8 +98,9 @@ namespace Bookshop___The_Reader.Controllers
 
 			return View(searchedGenre);
 		}
-		[HttpPost]
 
+		[HttpPost]
+		[Authorize(Roles = "Administrator")]
 		public async Task<IActionResult> DeleteConfirmed(int id)
 		{
 
@@ -110,12 +113,7 @@ namespace Bookshop___The_Reader.Controllers
 			return RedirectToAction("All", "Genre");
 		}
 
-		private IActionResult GeneralErrorMessage()
-		{
-			TempData[ErrorMessage] = "An unexpected error occurred! Please, try again.";
 
-			return RedirectToAction("All", "Genre");
-		}
 	}
 }
 

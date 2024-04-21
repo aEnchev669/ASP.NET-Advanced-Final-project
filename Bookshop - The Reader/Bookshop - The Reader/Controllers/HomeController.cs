@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TheReader.Core.Contracts.Book;
 
 namespace BookshopTheReader.Controllers
 {
 	public class HomeController : Controller
 	{
-		private readonly ILogger<HomeController> _logger;
 
 		private readonly IBookService bookService;
 
@@ -13,10 +13,11 @@ namespace BookshopTheReader.Controllers
 			ILogger<HomeController> logger,
 			IBookService _bookService)
 		{
-			_logger = logger;
+			
 			bookService = _bookService;
 		}
 
+		[AllowAnonymous]
 		public async Task<IActionResult> Index()
 		{
 			var model = await bookService.LastFourBooksAsync();
@@ -24,9 +25,27 @@ namespace BookshopTheReader.Controllers
 			return View(model);
 		}
 
+		[AllowAnonymous]
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-		public async Task<IActionResult> Error(int statusCode)
+		public IActionResult Error(int statusCode)
 		{
+			if (statusCode == 400)
+			{
+				return View("Error400");
+			}
+			else if (statusCode == 401)
+			{
+				return View("Error401");
+			}
+			else if (statusCode == 404)
+			{
+				return View("Error404");
+			}
+			else if (statusCode == 500)
+			{
+				return View("Error500");
+			}
+
 			return View("Error");
 		}
 	}

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using TheReader.Infrastructure.Data.Models.Account;
@@ -23,5 +22,5 @@ namespace TheReader.Infrastructure.Data.Models.Carts
 
 		[Comment("Collection of all books in the current cart")]
 		public ICollection<BookCart> BooksCarts { get; set; } = new HashSet<BookCart>();
-    }
+	}
 }

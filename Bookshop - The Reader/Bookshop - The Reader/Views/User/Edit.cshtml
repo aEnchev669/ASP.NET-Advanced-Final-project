@@ -1,0 +1,92 @@
+﻿@model EditProfileViewModel
+
+@{
+    var isAdmin = this.User.IsInRole("Admin");
+}
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <span class="font-weight-bold mt-3">@Model.UserName</span>
+                    <span class="text-black-50">@Model.Email</span>
+                    <span> </span>
+                </div>
+            </div>
+            <div class="col-md-5 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Profile Settings</h4>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label asp-for="@Model.FirstName" class="form-label">First name</label>
+                            <input asp-for="@Model.FirstName" class="form-control" aria-required="true" />
+                            <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="@Model.LastName" class="form-label">Last name</label>
+                            <input asp-for="@Model.LastName" class="form-control" aria-required="true" />
+                            <span asp-validation-for="@Model.LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <label asp-for="@Model.UserName" class="form-label">Username</label>
+                            <input asp-for="@Model.UserName" class="form-control" aria-required="true" />
+                            <span asp-validation-for="@Model.UserName" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
+                            <label asp-for="@Model.Gender" class="form-label">Gender</label>
+                            <input asp-for="@Model.Gender" class="form-control" aria-required="true" />
+                            <span asp-validation-for="@Model.Gender" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <label asp-for="@Model.BirthDate" class="form-label">BirthDate</label>
+                            <input asp-for="@Model.BirthDate" class="form-control" aria-required="true" />
+                            <span asp-validation-for="@Model.BirthDate" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <label asp-for="@Model.Email" class="form-label">Email</label>
+                            <input asp-for="@Model.Email" class="form-control" aria-required="true" />
+                            <span asp-validation-for="@Model.Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="mt-5">
+                            <button class="btn btn-primary profile-button" type="submit">Save Changes</button>
+                        </div>
+                        <div class="mt-5">
+                            @if(!isAdmin)
+                            {
+                                <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModel_@Model.Id">Delete</a>
+
+                            }
+                            else
+                            {
+                                <button class="btn btn-danger" disabled>Delete</button>
+
+                            }
+
+                            <div class="modal fade" id="deleteModel_@Model.Id" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header text-center text-danger">
+                                            <h5 class="modal-title" id="deleteModalLabel">Are you sure you want to delete your profile?</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button asp-controller="User" asp-action="Delete" type="submit" class="btn btn-danger">Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

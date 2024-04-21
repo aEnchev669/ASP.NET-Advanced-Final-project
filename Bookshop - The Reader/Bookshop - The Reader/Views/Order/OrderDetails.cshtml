@@ -28,7 +28,8 @@
                             <td>@book.Title</td>
                             <td>
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal-@book.BookId">
-                                    @book.Image
+                                <img class="card-img-top" style="width: 5rem;"
+                                     src="@book.Image">
                                 </a>
                             </td>
                             <td>$@book.Price.ToString("f2")</td>

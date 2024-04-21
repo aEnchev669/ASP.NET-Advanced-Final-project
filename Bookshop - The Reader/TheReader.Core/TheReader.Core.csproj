@@ -10,8 +10,4 @@
     <ProjectReference Include="..\TheReader.Infrastructure\TheReader.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Contracts\User\" />
-  </ItemGroup>
-
 </Project>

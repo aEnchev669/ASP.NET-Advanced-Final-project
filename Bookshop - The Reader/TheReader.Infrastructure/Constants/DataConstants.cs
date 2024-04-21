@@ -62,6 +62,10 @@
             //LastName
             public const int LastNameMinLength = 2;
             public const int LastNameMaxLength = 60;
+
+            //Username
+            public const int UsernameMinLength = 2;
+            public const int UserNameMaxLength = 60;
         }
 
         public static class OrderConstants

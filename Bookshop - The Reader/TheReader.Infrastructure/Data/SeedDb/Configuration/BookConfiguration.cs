@@ -8,10 +8,6 @@ namespace TheReader.Infrastructure.Data.SeedDb.Configuration
 	{
 		public void Configure(EntityTypeBuilder<Book> builder)
 		{
-			builder
-				.HasMany(b => b.Comments)
-				.WithOne(b => b.Book)
-				.OnDelete(DeleteBehavior.Restrict);
 
 			builder
 				.Property(b => b.Price)
