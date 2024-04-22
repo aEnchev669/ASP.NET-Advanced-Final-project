@@ -65,7 +65,7 @@ app.UseEndpoints(endpoints =>
 
 app.MapRazorPages();
 
-await app.CreateAdminRoleAsync();
 await app.CreateUserRoleAsync();
+await app.CreateAdminRoleAsync();
 
 await app.RunAsync();

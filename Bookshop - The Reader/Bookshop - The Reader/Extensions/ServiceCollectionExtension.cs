@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TheReader.Core.Contracts.Book;
 using TheReader.Core.Contracts.Cart;
+using TheReader.Core.Contracts.Event;
 using TheReader.Core.Contracts.Genre;
 using TheReader.Core.Contracts.Order;
 using TheReader.Core.Contracts.User;
@@ -21,9 +22,10 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<ICartService, CartService>();
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IEventService, EventService>();
 
 
-            return services;
+			return services;
         }
         public static IServiceCollection AddApplicationDbContext(this IServiceCollection services, IConfiguration config)
         {

@@ -74,77 +74,6 @@ namespace TheReader.Infrastructure.Migrations
                     b.ToTable("AspNetRoleClaims", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedEmail")
-                        .HasDatabaseName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasDatabaseName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
                     b.Property<int>("Id")
@@ -228,6 +157,145 @@ namespace TheReader.Infrastructure.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("TheReader.Infrastructure.Data.Models.Account.ApplicationUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("BirthDate")
+                        .HasColumnType("datetime2")
+                        .HasComment("The birth date of the current user");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)")
+                        .HasComment("The first name of the current user");
+
+                    b.Property<int>("Gender")
+                        .HasColumnType("int")
+                        .HasComment("The genre of the current user");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit")
+                        .HasComment("Is the user deleten");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)")
+                        .HasComment("The last name of the current user");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("RegistrationDate")
+                        .HasColumnType("datetime2")
+                        .HasComment("The registration date of the current user");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasComment("Current user");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "17eb4845-eeb1-4fbe-9d2b-324e2ab92c93",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "841c97a5-6e18-4c31-bced-41f2e1f686cf",
+                            Email = "Admin@gmail.com",
+                            EmailConfirmed = false,
+                            FirstName = "Admin",
+                            Gender = 1,
+                            IsDeleted = false,
+                            LastName = "Adminov",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@gmail.com",
+                            NormalizedUserName = "ADMIN231",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPbGaFxTzvZcu3hLG8kJB5jkE5P6vXikXCI9AwKtXpdNLJrHSGjAgaqxsVqnICElNw==",
+                            PhoneNumberConfirmed = false,
+                            RegistrationDate = new DateTime(2024, 4, 21, 14, 35, 23, 320, DateTimeKind.Local).AddTicks(2490),
+                            SecurityStamp = "555657ea-2af0-4c79-a3af-5e13eefc3fe6",
+                            TwoFactorEnabled = false,
+                            UserName = "admin231"
+                        },
+                        new
+                        {
+                            Id = "641ca250-7c7a-40a5-8e3c-657714fb3d4a",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "7590a29d-45e8-494f-a196-4ea4b9076aff",
+                            Email = "guest231@gmail.com",
+                            EmailConfirmed = false,
+                            FirstName = "Guest",
+                            Gender = 1,
+                            IsDeleted = false,
+                            LastName = "Guestov",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "GUEST231@gmail.com",
+                            NormalizedUserName = "GUEST231",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGsYpJ/cLAQb+OHxnhCWHd7IR7ovub8Rh69c6z6ElogJK+F+FHVsyWHVb5IumTsZRA==",
+                            PhoneNumberConfirmed = false,
+                            RegistrationDate = new DateTime(2024, 4, 21, 14, 35, 23, 321, DateTimeKind.Local).AddTicks(5756),
+                            SecurityStamp = "66dcac0e-f4d4-48cf-a98b-ad773159f8bd",
+                            TwoFactorEnabled = false,
+                            UserName = "Guest231"
+                        });
                 });
 
             modelBuilder.Entity("TheReader.Infrastructure.Data.Models.BookCart", b =>
@@ -513,6 +581,123 @@ namespace TheReader.Infrastructure.Migrations
                     b.HasComment("Current cart");
                 });
 
+            modelBuilder.Entity("TheReader.Infrastructure.Data.Models.EventCart", b =>
+                {
+                    b.Property<int>("EventId")
+                        .HasColumnType("int")
+                        .HasComment("The current Event's Identifier");
+
+                    b.Property<int>("CartId")
+                        .HasColumnType("int")
+                        .HasComment("The current Cart's Identifier");
+
+                    b.HasKey("EventId", "CartId");
+
+                    b.HasIndex("CartId");
+
+                    b.ToTable("EventsCarts");
+                });
+
+            modelBuilder.Entity("TheReader.Infrastructure.Data.Models.EventParticipant", b =>
+                {
+                    b.Property<int>("EventId")
+                        .HasColumnType("int")
+                        .HasComment("The current Event's Identifier");
+
+                    b.Property<string>("ParticipantId")
+                        .HasColumnType("nvarchar(450)")
+                        .HasComment("The current Participant's Identifier");
+
+                    b.HasKey("EventId", "ParticipantId");
+
+                    b.HasIndex("ParticipantId");
+
+                    b.ToTable("EventsParticipants");
+                });
+
+            modelBuilder.Entity("TheReader.Infrastructure.Data.Models.Events.Event", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasComment("The current Event's Identifier");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2")
+                        .HasComment("The current Event's date");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(4000)
+                        .HasColumnType("nvarchar(4000)")
+                        .HasComment("The current Event's Description");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasComment("The current Event's Location");
+
+                    b.Property<int>("Seats")
+                        .HasColumnType("int")
+                        .HasComment("The current Event's seats");
+
+                    b.Property<decimal>("TicketPrice")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
+                        .HasComment("The current Event's Ticket Price");
+
+                    b.Property<string>("Topic")
+                        .IsRequired()
+                        .HasMaxLength(120)
+                        .HasColumnType("nvarchar(120)")
+                        .HasComment("The current Event's Topic");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Events");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Date = new DateTime(2024, 3, 30, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Европейкси музикален фестивал предсатвя на живо Елена Бакширова. За пръв път във Варна ще ни гостува Оркестър Кантус Фирмис с диригент Ивайло Кринчев",
+                            IsDeleted = false,
+                            Location = "Зала 1 Градска художествена галерия",
+                            Seats = 100,
+                            TicketPrice = 25m,
+                            Topic = "Европейски музикален фестивал Варна 2024 - Програма"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Date = new DateTime(2024, 4, 2, 18, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Двете варненски галерии продължават съвместната си образователна програма \"Въведение в графичното изкуство\" с нов модул, посветен на графичната техника гравюра на линолеум. Това е следващата оригинална графична техника след монотипията, с която участниците вече се запознаха в рамките на програмата.\r\n\r\n",
+                            IsDeleted = false,
+                            Location = "Градски художествена галерия - Варна и Галерия за графично изкуство - Варна",
+                            Seats = 210,
+                            TicketPrice = 16m,
+                            Topic = "Тайните на гравюрата на линолеум в Образователната програма на Градската художествена галерия"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Date = new DateTime(2024, 4, 4, 19, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "С изкуството си Николай Янакиев е извоювал място сред най- утвърдените и най- известните имена на съвременната визуална сцена. Твори в областта на живописта и неговите картини се характеризират като „абстрактни“, „експресивни“, „импресионистични“, „фовистични“, но и много поетични, с елементи на загатнат реализъм. Янакиев се доказва през годините като художник с неподражаем и разпознаваем стил, с изключително цветоусещане и с безупречен усет за композиция.",
+                            IsDeleted = false,
+                            Location = "Галерия Ларго, ул. Хан Крум 8, Варна",
+                            Seats = 50,
+                            TicketPrice = 30m,
+                            Topic = "„Настроения“ - изложба живопис на Николай Янакиев"
+                        });
+                });
+
             modelBuilder.Entity("TheReader.Infrastructure.Data.Models.Orders.Order", b =>
                 {
                     b.Property<int>("Id")
@@ -602,88 +787,6 @@ namespace TheReader.Infrastructure.Migrations
                     b.HasComment("User's products");
                 });
 
-            modelBuilder.Entity("TheReader.Infrastructure.Data.Models.Account.ApplicationUser", b =>
-                {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
-
-                    b.Property<DateTime?>("BirthDate")
-                        .HasColumnType("datetime2")
-                        .HasComment("The birth date of the current user");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)")
-                        .HasComment("The first name of the current user");
-
-                    b.Property<int>("Gender")
-                        .HasColumnType("int")
-                        .HasComment("The genre of the current user");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit")
-                        .HasComment("Is the user deleten");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)")
-                        .HasComment("The last name of the current user");
-
-                    b.Property<DateTime>("RegistrationDate")
-                        .HasColumnType("datetime2")
-                        .HasComment("The registration date of the current user");
-
-                    b.HasDiscriminator().HasValue("ApplicationUser");
-
-                    b.HasComment("Current user");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "17eb4845-eeb1-4fbe-9d2b-324e2ab92c93",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "46680643-adfc-4e57-87de-e0655c8fdc32",
-                            Email = "Admin@gmail.com",
-                            EmailConfirmed = false,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "ADMIN@gmail.com",
-                            NormalizedUserName = "ADMIN231",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBasXHBwJhUTl5VHLZzK0LnFeial0G7sF0fH2XAlbkmsYF6qs7gmg3FxYXqOZUPc2g==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "1ad806f9-72da-456c-94fb-cd75a30e31f1",
-                            TwoFactorEnabled = false,
-                            UserName = "admin231",
-                            FirstName = "Admin",
-                            Gender = 0,
-                            IsDeleted = false,
-                            LastName = "Adminov",
-                            RegistrationDate = new DateTime(2024, 4, 20, 8, 22, 14, 504, DateTimeKind.Local).AddTicks(5326)
-                        },
-                        new
-                        {
-                            Id = "641ca250-7c7a-40a5-8e3c-657714fb3d4a",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "549cece1-68e4-4adb-8194-ada35c41f553",
-                            Email = "guest231@gmail.com",
-                            EmailConfirmed = false,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "GUEST231@gmail.com",
-                            NormalizedUserName = "GUEST231",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJDguLFSZtvJg6g+Lhn8hMe6IgBoQvV3xLBzJ6PDGSQ/9kt9HTLvUWMob7R4lduGZw==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "8b504d36-0ffc-400d-bcc5-099c782bf47f",
-                            TwoFactorEnabled = false,
-                            UserName = "Guest231",
-                            BirthDate = new DateTime(2024, 4, 20, 8, 22, 14, 505, DateTimeKind.Local).AddTicks(8953),
-                            FirstName = "Guest",
-                            Gender = 1,
-                            IsDeleted = false,
-                            LastName = "Guestov",
-                            RegistrationDate = new DateTime(2024, 4, 20, 8, 22, 14, 505, DateTimeKind.Local).AddTicks(8945)
-                        });
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -695,7 +798,7 @@ namespace TheReader.Infrastructure.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("TheReader.Infrastructure.Data.Models.Account.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -704,7 +807,7 @@ namespace TheReader.Infrastructure.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("TheReader.Infrastructure.Data.Models.Account.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -719,7 +822,7 @@ namespace TheReader.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("TheReader.Infrastructure.Data.Models.Account.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -728,7 +831,7 @@ namespace TheReader.Infrastructure.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("TheReader.Infrastructure.Data.Models.Account.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -776,6 +879,44 @@ namespace TheReader.Infrastructure.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("TheReader.Infrastructure.Data.Models.EventCart", b =>
+                {
+                    b.HasOne("TheReader.Infrastructure.Data.Models.Carts.Cart", "Cart")
+                        .WithMany()
+                        .HasForeignKey("CartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TheReader.Infrastructure.Data.Models.Events.Event", "Event")
+                        .WithMany("EventsCarts")
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cart");
+
+                    b.Navigation("Event");
+                });
+
+            modelBuilder.Entity("TheReader.Infrastructure.Data.Models.EventParticipant", b =>
+                {
+                    b.HasOne("TheReader.Infrastructure.Data.Models.Events.Event", "Event")
+                        .WithMany("EventsParticipants")
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TheReader.Infrastructure.Data.Models.Account.ApplicationUser", "Participant")
+                        .WithMany()
+                        .HasForeignKey("ParticipantId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Event");
+
+                    b.Navigation("Participant");
+                });
+
             modelBuilder.Entity("TheReader.Infrastructure.Data.Models.Orders.Order", b =>
                 {
                     b.HasOne("TheReader.Infrastructure.Data.Models.Carts.Cart", "Cart")
@@ -814,6 +955,11 @@ namespace TheReader.Infrastructure.Migrations
                     b.Navigation("Book");
                 });
 
+            modelBuilder.Entity("TheReader.Infrastructure.Data.Models.Account.ApplicationUser", b =>
+                {
+                    b.Navigation("Orders");
+                });
+
             modelBuilder.Entity("TheReader.Infrastructure.Data.Models.Books.Genre", b =>
                 {
                     b.Navigation("Books");
@@ -824,9 +970,11 @@ namespace TheReader.Infrastructure.Migrations
                     b.Navigation("BooksCarts");
                 });
 
-            modelBuilder.Entity("TheReader.Infrastructure.Data.Models.Account.ApplicationUser", b =>
+            modelBuilder.Entity("TheReader.Infrastructure.Data.Models.Events.Event", b =>
                 {
-                    b.Navigation("Orders");
+                    b.Navigation("EventsCarts");
+
+                    b.Navigation("EventsParticipants");
                 });
 #pragma warning restore 612, 618
         }

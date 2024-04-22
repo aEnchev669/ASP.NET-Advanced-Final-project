@@ -1,0 +1,36 @@
+﻿@model IEnumerable<AllEventViewModel>
+
+
+@{
+	ViewBag.Title = "All Events";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+@if (User.IsInRole("Administrator"))
+{
+	<div class="text-center mb-4">
+		<a asp-controller="Event" asp-action="AddEvent" class="btn btn-primary btn-lg">Add Event</a>
+	</div>
+}
+
+@if (!Model.Any())
+{
+	<h2 class="text-center mt-5">No Events yet!</h2>
+}
+else
+{
+	@foreach (var currEvent in Model)
+	{
+		<div class="card col-4" style="width: 20rem; ">
+			<div class="card-body">
+				<h5 class="card-title mt-1">@currEvent.Topic</h5>
+				<p class="mb-0">Date: @currEvent.Date</p>
+				<a asp-controller="Event" asp-action="Details" asp-route-Id="@currEvent.Id">
+					<input type="submit" value="Details" class="fs-6 btn btn-success mb-3 p-2" />
+				</a>
+			</div>
+		</div>
+	}
+}

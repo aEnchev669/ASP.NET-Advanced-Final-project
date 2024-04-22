@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.Globalization;
 using TheReader.Infrastructure.Data.Models.Account;
 using TheReader.Infrastructure.Data.Models.Books;
 using TheReader.Infrastructure.Data.Models.Enums;
+using TheReader.Infrastructure.Data.Models.Events;
+using static TheReader.Infrastructure.Constants.DataConstants.EventConstants;
 
 namespace TheReader.Infrastructure.Data.SeedDb
 {
@@ -30,11 +33,16 @@ namespace TheReader.Infrastructure.Data.SeedDb
 		public Genre Travel { get; set; } = null!;
 		public Genre Crime { get; set; } = null!;
 
+		//Events
+		public Event EventOne { get; set; } = null!;
+		public Event EventTwo { get; set; } = null!;
+		public Event EventThree { get; set; } = null!;
 		public SeedData()
 		{
 			SeedUsers();
 			SeedBooks();
 			SeedGenres();
+			SeedEvents();
 		}
 
 		private void SeedUsers()
@@ -50,6 +58,7 @@ namespace TheReader.Infrastructure.Data.SeedDb
 				NormalizedEmail = "ADMIN@gmail.com",
 				FirstName = "Admin",
 				LastName = "Adminov",
+				Gender = (GenderType)1,
 			};
 
 			AdminUser.PasswordHash = hasher.HashPassword(AdminUser, "Admin123");
@@ -63,7 +72,6 @@ namespace TheReader.Infrastructure.Data.SeedDb
 				LastName = "Guestov",
 				Email = "guest231@gmail.com",
 				NormalizedEmail = "GUEST231@gmail.com",
-				BirthDate = DateTime.Now,
 				Gender = (GenderType)1,
 			};
 
@@ -192,6 +200,39 @@ namespace TheReader.Infrastructure.Data.SeedDb
 				Language = "Български",
 				Weight = 0.39,
 				Pages = 360
+			};
+		}
+		private void SeedEvents()
+		{
+			EventOne = new Event()
+			{
+				Id = 1,
+				Topic = "Европейски музикален фестивал Варна 2024 - Програма",
+				Description = "Европейкси музикален фестивал предсатвя на живо Елена Бакширова. За пръв път във Варна ще ни гостува Оркестър Кантус Фирмис с диригент Ивайло Кринчев" ,
+				Location = "Зала 1 Градска художествена галерия",
+				Date = DateTime.ParseExact("30/03/2024 12:00", DateTimeFormat, CultureInfo.InvariantCulture, DateTimeStyles.None),
+				Seats = 100,
+				TicketPrice = 25
+			};
+			EventTwo = new Event()
+			{
+				Id = 2,
+				Topic = "Тайните на гравюрата на линолеум в Образователната програма на Градската художествена галерия",
+				Description = "Двете варненски галерии продължават съвместната си образователна програма \"Въведение в графичното изкуство\" с нов модул, посветен на графичната техника гравюра на линолеум. Това е следващата оригинална графична техника след монотипията, с която участниците вече се запознаха в рамките на програмата.\r\n\r\n",
+				Location = "Градски художествена галерия - Варна и Галерия за графично изкуство - Варна",
+				Date = DateTime.ParseExact("02/04/2024 18:00", DateTimeFormat, CultureInfo.InvariantCulture, DateTimeStyles.None),
+				Seats = 210,
+				TicketPrice = 16
+			};
+			EventThree = new Event()
+			{
+				Id = 3,
+				Topic = "„Настроения“ - изложба живопис на Николай Янакиев",
+				Description = "С изкуството си Николай Янакиев е извоювал място сред най- утвърдените и най- известните имена на съвременната визуална сцена. Твори в областта на живописта и неговите картини се характеризират като „абстрактни“, „експресивни“, „импресионистични“, „фовистични“, но и много поетични, с елементи на загатнат реализъм. Янакиев се доказва през годините като художник с неподражаем и разпознаваем стил, с изключително цветоусещане и с безупречен усет за композиция.",
+				Location = "Галерия Ларго, ул. Хан Крум 8, Варна",
+				Date = DateTime.ParseExact("04/04/2024 19:00", DateTimeFormat, CultureInfo.InvariantCulture, DateTimeStyles.None),
+				Seats = 50,
+				TicketPrice = 30
 			};
 		}
 	}

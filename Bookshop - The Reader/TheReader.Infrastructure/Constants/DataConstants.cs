@@ -67,8 +67,32 @@
             public const int UsernameMinLength = 2;
             public const int UserNameMaxLength = 60;
         }
+		public static class EventConstants
+		{
+			public const string DateTimeFormat = "dd/MM/yyyy HH:mm";
 
-        public static class OrderConstants
+			//Topic
+			public const int EventTopicMinLength = 5;
+			public const int EventTopicMaxLength = 120;
+
+			//Description
+			public const int EventDescriptionMinLength = 30;
+			public const int EventDescriptionMaxLength = 4000;
+
+			//Location
+			public const int EventLocationMinLength = 5;
+			public const int EventLocationMaxLength = 100;
+
+			//Seats
+			public const int EventSeatsMinRange = 1;
+			public const uint EventSeatsMaxRange = uint.MaxValue;
+
+			//Ticket Price
+			public const int EventTicketPriceMinRange = 0;
+			public const uint EventTicketPriceMaxRange = uint.MaxValue;
+		}
+
+		public static class OrderConstants
         {
             //FiestName
             public const int FirstNameMinLength = 2;

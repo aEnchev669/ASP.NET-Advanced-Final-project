@@ -1,0 +1,54 @@
+﻿@model EventFormViewModel
+@{
+    ViewBag.Title = "Add Event";
+}
+
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<hr />
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <form asp-controller="Event" asp-action="AddEvent" method="post">
+            <div class="mb-3">
+                <label asp-for="@Model.Topic" class="form-label">Topic</label>
+                <input asp-for="@Model.Topic" class="form-control" aria-required="true" />
+                <span asp-validation-for="@Model.Topic" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Description" class="form-label">Description</label>
+                <input asp-for="@Model.Description" class="form-control" aria-required="true" />
+                <span asp-validation-for="@Model.Description" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Location" class="form-label">Location</label>
+                <input asp-for="@Model.Location" class="form-control" aria-required="true" />
+                <span asp-validation-for="@Model.Location" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.TicketPrice" class="form-label">TicketPrice</label>
+                <input asp-for="@Model.TicketPrice" class="form-control" aria-required="true" />
+                <span asp-validation-for="@Model.TicketPrice" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Date" class="form-label">Date</label>
+                <input asp-for="@Model.Date" class="form-control" aria-required="true" />
+                <span asp-validation-for="@Model.Date" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="@Model.Seats" class="form-label">Seats</label>
+                <input asp-for="@Model.Seats" class="form-control" aria-required="true" />
+                <span asp-validation-for="@Model.Seats" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <input class="btn btn-primary" type="submit" value="Create" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
