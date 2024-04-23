@@ -5,9 +5,11 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookshop - The Reader", "Bookshop - The Reader\Bookshop - The Reader.csproj", "{1C578A36-6F11-4A41-97B8-02D886854601}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheReader.Core", "TheReader.Core\TheReader.Core.csproj", "{98BDA326-A105-46CD-AB21-5B33A2CE5C07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheReader.Core", "TheReader.Core\TheReader.Core.csproj", "{98BDA326-A105-46CD-AB21-5B33A2CE5C07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheReader.Infrastructure", "TheReader.Infrastructure\TheReader.Infrastructure.csproj", "{E0993253-731E-4422-BBA9-A7AA75171B3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheReader.Infrastructure", "TheReader.Infrastructure\TheReader.Infrastructure.csproj", "{E0993253-731E-4422-BBA9-A7AA75171B3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheReaderServicesUnitTests", "TheReaderServicesUnitTests\TheReaderServicesUnitTests.csproj", "{EC8A2302-ECAB-43FA-8079-1CC4AF7CCCA9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{E0993253-731E-4422-BBA9-A7AA75171B3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0993253-731E-4422-BBA9-A7AA75171B3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0993253-731E-4422-BBA9-A7AA75171B3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC8A2302-ECAB-43FA-8079-1CC4AF7CCCA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC8A2302-ECAB-43FA-8079-1CC4AF7CCCA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC8A2302-ECAB-43FA-8079-1CC4AF7CCCA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC8A2302-ECAB-43FA-8079-1CC4AF7CCCA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

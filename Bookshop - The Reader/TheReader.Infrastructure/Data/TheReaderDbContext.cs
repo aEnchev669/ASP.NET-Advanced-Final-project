@@ -15,7 +15,10 @@ namespace BookshopTheReader.Infrastructure.Data
         public TheReaderDbContext(DbContextOptions<TheReaderDbContext> options)
             : base(options)
         {
-
+            if (!this.Database.IsRelational())
+            {
+                this.Database.EnsureCreated();
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

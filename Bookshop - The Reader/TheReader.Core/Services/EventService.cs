@@ -33,7 +33,7 @@ namespace TheReader.Core.Services
 
 			return currentEvent.Id;
 		}
-
+		
 		public async Task<ICollection<AllEventViewModel>> AllAsync()
 		{
 			var events = await dbContext
@@ -146,5 +146,7 @@ namespace TheReader.Core.Services
                 })
 				.FirstAsync();
 		}
+
+
 	}
 }
