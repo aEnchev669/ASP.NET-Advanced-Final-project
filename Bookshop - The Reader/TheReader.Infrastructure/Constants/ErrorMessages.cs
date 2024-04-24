@@ -18,6 +18,8 @@
 
 			public const string InvalidPages = "Pages must be between {1} and {2}.";
 
+			public const string InvalidImageURL = "Pages must be between {1} and {2}.";
+
 			public const string InvalidPublishedYear = "Published year must be between {1} and {2}.";
 		}
 

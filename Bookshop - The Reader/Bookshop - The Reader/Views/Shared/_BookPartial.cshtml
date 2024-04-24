@@ -1,0 +1,32 @@
+﻿@model BookServiceModel
+
+@if (User.Identity?.IsAuthenticated == true)
+{
+
+	<div class="text-center row">
+
+		<div class="card col-4" style="width: 20rem; ">
+			<img class="card-img-top" style="width: 18rem;"
+				 src="@Model.ImageUrl" alt="Book Image">
+			<div class="card-body">
+				@if (User.IsInRole("Administrator"))
+				{
+					<a asp-controller="Book" asp-action="Edit" asp-route-id="@Model.Id">
+						<i class="fa-solid fa-pen-to-square"></i>
+					</a>
+					<a asp-controller="Book" asp-action="Delete" asp-route-id="@Model.Id">
+						<i class="fa-solid fa-trash"></i>
+					</a>
+				}
+				<h5 class="card-title mt-1">@Model.Title</h5>
+				<h4 class="card-title mt-1">@Model.Author</h4>
+				<p class="mb-0">Price: @Model.Price лв.</p>
+				<a asp-controller="Book" asp-action="Details" asp-route-Id="@Model.Id">
+					<input type="submit" value="Details" class="fs-6 btn btn-success mb-3 p-2" />
+				</a>
+			</div>
+		</div>
+	</div>
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"></script>
+<script src="~/lib/toastr/toastr.min.js"></script>

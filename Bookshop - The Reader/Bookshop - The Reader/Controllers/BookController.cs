@@ -20,15 +20,32 @@ namespace Bookshop___The_Reader.Controllers
 			genreService = _genreService;
 		}
 
-		[Authorize]
-		public async Task<IActionResult> All()
+		//      [HttpGet]
+		//public async Task<IActionResult> All()
+		//{
+		//	var books = await bookService.AllBooksAsync();
+		//	if (books == null)
+		//	{
+		//		return View();
+		//	}
+		//	return View(books);
+		//}
+
+		[HttpGet]
+		public async Task<IActionResult> All([FromQuery] AllBooksQueryModel model)
 		{
-			var books = await bookService.AllBooksAsync();
-			if (books == null)
-			{
-				return View();
-			}
-			return View(books);
+			var allBooks = await bookService.AllAsync(
+				model.Genre,
+				model.SearchTerm,
+				model.Sorting,
+				model.CurrentPage,
+				model.BooksPerPage);
+
+			model.TotalBooksCount = allBooks.TotalBooksCount;
+			model.Books = allBooks.Books;
+			model.Genres = await genreService.AllGenresNamesAsync();
+
+			return View(model);
 		}
 
 		public async Task<IActionResult> Details(int id)

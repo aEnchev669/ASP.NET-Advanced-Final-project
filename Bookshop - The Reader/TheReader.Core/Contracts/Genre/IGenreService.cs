@@ -5,6 +5,7 @@ namespace TheReader.Core.Contracts.Genre
 	public interface IGenreService
 	{
 		Task<ICollection<GenreViewModel>> AllGenresAsync();
+		Task<IEnumerable<string>> AllGenresNamesAsync();
 		Task<bool> IsGenreExistByNameAsync(string genreName);
 		Task<bool> IsGenreExistAsync(int id);
 		Task CreateNewGenreAsync(NewGenreViewModel genreModel);

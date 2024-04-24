@@ -53,17 +53,20 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
       name: "Admin",
-      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-    );
+      pattern: "{area:exists}/{controller=Book}/{action=All}/{id?}");
 
     endpoints.MapControllerRoute(
-   name: "default",
-   pattern: "{controller=Home}/{action=Index}/{id?}");
+	    name: "User",
+	    pattern: "{area:exists}/{controller=Book}/{action=All}/{id?}");
+
+	endpoints.MapControllerRoute(
+	    name: "areas",
+	    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 
 });
 
-app.MapRazorPages();
+	app.MapRazorPages();
 
 await app.CreateUserRoleAsync();
 await app.CreateAdminRoleAsync();

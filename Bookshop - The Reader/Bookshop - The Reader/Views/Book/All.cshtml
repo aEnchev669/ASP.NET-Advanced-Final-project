@@ -1,52 +1,72 @@
-﻿@model IEnumerable<AllBooksViewModel>
+﻿@model AllBooksQueryModel
 @{
 	ViewBag.Title = "All Books";
 }
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-<link rel="stylesheet" href="~/lib/toastr/toastr.min.css" />
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
+@{
+	ViewBag.Title = "Всички книги";
+}
 
 <h2 class="text-center">@ViewBag.Title</h2>
 <hr />
 
-@if (User.Identity?.IsAuthenticated == true)
+@if (User.IsInRole("Administrator"))
 {
-	
-	<div class="text-center row">
-		@foreach (var book in Model)
-		{
-			<div class="card col-4" style="width: 20rem; ">
-				<img class="card-img-top" style="width: 18rem;"
-					 src="@book.ImageURL" alt="Book Image">
-				<div class="card-body">
-					@if (User.IsInRole("Administrator"))
-					{
-						<a asp-controller="Book" asp-action="Edit" asp-route-id="@book.Id">
-							<i class="fa-solid fa-pen-to-square"></i>
-						</a>
-						<a asp-controller="Book" asp-action="Delete" asp-route-id="@book.Id">
-							<i class="fa-solid fa-trash"></i>
-						</a>
-					}
-					<h5 class="card-title mt-1">@book.Title</h5>
-					<h4 class="card-title mt-1">@book.Author</h4>
-					<p class="mb-0">Price: @book.Price лв.</p>
-					<a asp-controller="Book" asp-action="Details" asp-route-Id="@book.Id">
-						<input type="submit" value="Details" class="fs-6 btn btn-success mb-3 p-2" />
-					</a>
-				</div>
-			</div>
-		}
-		@if (User.IsInRole("Administrator"))
-		{
-			<a href="/Book/AddBook" class="btn btn-sm" style="color: #234476">
-				<input type="submit" value="Add new Book" class="fs-6 btn btn-success mb-3 p-2" />
-			</a>
-		}
 
+	<div class="text-center mb-4">
+		<a asp-controller="Book" asp-action="AddBook" class="btn btn-primary btn-lg">Добави книга</a>
 	</div>
 }
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"></script>
-<script src="~/lib/toastr/toastr.min.js"></script>
+<form method="get">
+	<div class="row">
+		<div class="form-group col-md-3">
+			<label asp-for="SearchTerm"></label>
+			<input asp-for="SearchTerm" class="form-control" placeholder="Търси...">
+		</div>
+
+		<div class="form-group col-md-2">
+			<label asp-for="Sorting"></label>
+			<select asp-for="Sorting" class="form-control">
+				<option value="0">Най-скоро добавени</option>
+				<option value="1">Най-късно добавени</option>
+				<option value="2">Цена (Възходяща)</option>
+				<option value="3">Цена (Низходяща)</option>
+				<option value="6">Автор (Възходящ)</option>
+				<option value="7">Автор (Низходящ)</option>
+			</select>
+		</div>
+
+		<div class="form-group col-md-3">
+			<label asp-for="Genre"></label>
+			<select asp-for="Genre" class="form-control">
+				<option value="">Всички</option>
+				@foreach (var genre in Model.Genres)
+				{
+					<option value="@genre">@genre</option>
+				}
+			</select>
+		</div>
+
+
+		<div class="col-md-1 d-flex align-items-end">
+			<input type="submit" value="Търси" class="btn btn-success w-100" />
+		</div>
+	</div>
+</form>
+
+@if (!Model.Books.Any())
+{
+	<h2 class="text-center mt-5">Няма намерени книги!</h2>
+}
+else
+{
+	<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 mt-5">
+		@foreach (var book in Model.Books)
+		{
+
+			<partial name="_BookPartial" model="@book" />
+		}
+	</div>
+	<partial name="_BookPagesPartial" model="@Model" />
+}

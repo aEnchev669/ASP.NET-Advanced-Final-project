@@ -1,8 +1,8 @@
 ﻿using BookshopTheReader.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using System.Net;
 using TheReader.Core.Contracts.Book;
 using TheReader.Core.Models.Book;
+using TheReader.Core.Models.Book.Enums;
 using TheReader.Core.Models.Genre;
 using TheReader.Infrastructure.Data.Models.Books;
 
@@ -36,6 +36,67 @@ namespace TheReader.Core.Services
 						.ToListAsync();
 
 			return allBooks;
+		}
+
+		public async Task<BookQueryServiceModel> AllAsync(string? genre = null,
+			string? searchTerm = null,
+			BooksSorting sorting = BooksSorting.Newest,
+			int currentPage = 1,
+			int booksPerPage = 10)
+		{
+			var booksToShow = dbContext
+				.Books
+				.Where(b => b.IsDeleted == false);
+
+			if (genre != null)
+			{
+				booksToShow = booksToShow
+					.Where(b => b.Genre.Name.ToLower() == genre.ToLower());
+			}
+
+			if (searchTerm != null)
+			{
+				string normalizedSearchTerm = searchTerm.ToLower();
+
+				booksToShow = booksToShow
+				.Where(b => normalizedSearchTerm.Contains(b.Title.ToLower())
+				|| normalizedSearchTerm.Contains(b.Author.ToLower())
+				|| normalizedSearchTerm.Contains(b.Genre.Name.ToLower())
+				|| b.Title.ToLower().Contains(normalizedSearchTerm)
+				|| b.Author.ToLower().Contains(normalizedSearchTerm)
+				|| b.Genre.Name.ToLower().Contains(normalizedSearchTerm));
+			}
+
+			booksToShow = sorting switch
+			{
+				BooksSorting.Oldest => booksToShow.OrderBy(b => b.Id),
+				BooksSorting.PriceAscending => booksToShow.OrderBy(b => b.Price).ThenByDescending(b => b.Id),
+				BooksSorting.PriceDescending => booksToShow.OrderByDescending(b => b.Price).ThenByDescending(b => b.Id),
+				BooksSorting.IdAscending => booksToShow.OrderBy(b => b.Id),
+				BooksSorting.IdDescending => booksToShow.OrderByDescending(b => b.Id),
+				_ => booksToShow.OrderByDescending(b => b.Id),
+			};
+
+			var books = await booksToShow
+				.Skip((currentPage - 1) * booksPerPage)
+				.Take(booksPerPage)
+			.Select(b => new BookServiceModel()
+			{
+				Id = b.Id,
+				Title = b.Title,
+				Author = b.Author,
+				Price = b.Price,
+				ImageUrl = b.ImageUrl
+			})
+				.ToArrayAsync();
+
+			int totalBooks = await booksToShow.CountAsync();
+
+			return new BookQueryServiceModel()
+			{
+				Books = books,
+				TotalBooksCount = totalBooks
+			};
 		}
 
 		public async Task<IEnumerable<BookIndexViewModel>> AllIBooksByChoosenGenreAsync(string name)
@@ -192,8 +253,8 @@ namespace TheReader.Core.Services
 				})
 				.ToListAsync();
 		}
-		
-		public  DeleteBookViewModel DeleteBookAsync(int bookId)
+
+		public DeleteBookViewModel DeleteBookAsync(int bookId)
 		{
 			var book = dbContext
 				.Books

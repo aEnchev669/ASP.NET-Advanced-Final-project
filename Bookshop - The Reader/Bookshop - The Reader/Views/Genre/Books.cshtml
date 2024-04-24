@@ -23,16 +23,16 @@
 							<img class="card-img-top" src="@book.ImageUrl" alt="Book Image">
 						</div>
 					</a>
-					@if (!User.IsInRole("Administrator"))
-					{
 						<div class="card-body text-center">
 							<h4>@book.Title</h4>
 						<p class="mb-3 h5">Price: $@book.Price</p>
+					@if (!User.IsInRole("Administrator"))
+					{
 						<form asp-controller="Cart" asp-action="Add" asp-route-id="@book.Id" method="post" class="mb-2">
 							<button type="submit" class="btn btn-sm"><i class="fas fa-cart-plus custom-icon" style="color: #234476"></i>Add to Cart</button>
 						</form>
-					</div>
 					}
+					</div>
 				</div>
 			</div>
 

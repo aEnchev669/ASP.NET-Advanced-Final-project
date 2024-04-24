@@ -13,7 +13,7 @@ namespace BookshopTheReader.Controllers
 			ILogger<HomeController> logger,
 			IBookService _bookService)
 		{
-			
+
 			bookService = _bookService;
 		}
 
@@ -33,15 +33,15 @@ namespace BookshopTheReader.Controllers
 			{
 				return View("Error400");
 			}
-			else if (statusCode == 401)
+			if (statusCode == 401)
 			{
 				return View("Error401");
 			}
-			else if (statusCode == 404)
+			if (statusCode == 404)
 			{
 				return View("Error404");
 			}
-			else if (statusCode == 500)
+			if (statusCode == 500)
 			{
 				return View("Error500");
 			}

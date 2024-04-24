@@ -28,6 +28,14 @@ namespace TheReader.Core.Services
 
 			return allGenres;
 		}
+		public async Task<IEnumerable<string>> AllGenresNamesAsync()
+		{
+			return await dbContext
+				.Genres
+				.AsNoTracking()
+				.Select(g => g.Name)
+				.ToListAsync();
+		}
 
 		public async Task CreateNewGenreAsync(NewGenreViewModel genreModel)
 		{

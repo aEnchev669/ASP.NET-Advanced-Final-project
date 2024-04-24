@@ -1,32 +1,24 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using TheReader.Core.Models.Book.Enums;
-using static TheReader.Infrastructure.Constants.ApplicaitonConstants;
 namespace TheReader.Core.Models.Book
 {
-    public class AllBooksQueryModel
-    {
-        public AllBooksQueryModel()
-        {
-            CurrentPage = DefaultPage;
-            ItemsPerPage = ItemsPerPageConstant;
-        } 
+	public class AllBooksQueryModel
+	{
+		public int BooksPerPage { get; } = 8;
 
-        public string? Category { get; set; }
+		[Display(Name = "Search")]
+		public string SearchTerm { get; set; } = String.Empty;
 
-        [Display(Name = "Search by type")]
-        public string? SearchString { get; set; }
+		[Display(Name = "Sorting")]
+		public BooksSorting Sorting { get; set; }
 
-        [Display(Name = "Sort By:")]
-        public BooksSorting ItemSorting { get; set; }
+		public int TotalBooksCount { get; set; }
+		public int CurrentPage { get; set; } = 1;
 
-        public int CurrentPage { get; set; }
+		[Display(Name = "Genre")]
+		public string Genre { get; set; } = null!;
+		public IEnumerable<string> Genres { get; set; } = null!;
 
-        public int ItemsPerPage { get; set; }
-
-        public int TotalItems { get; set; }
-
-        public IEnumerable<string> Categories { get; set; } = new HashSet<string>();
-
-        public IEnumerable<AllBooksViewModel> Books { get; set; } = new HashSet<AllBooksViewModel>();
-    }
+		public IEnumerable<BookServiceModel> Books { get; set; } = new HashSet<BookServiceModel>();
+	}
 }
