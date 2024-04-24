@@ -17,26 +17,7 @@ namespace TheReader.Core.Services
 			dbContext = _dbContext;
 		}
 
-		public async Task<IEnumerable<AllBooksViewModel>> AllBooksAsync()
-		{
-			var allBooks = await dbContext
-						 .Books
-						 .AsNoTracking()
-						 .Where(b => b.IsDeleted == false)
-						.OrderByDescending(b => b.PublishedYear)
-						.Select(b => new AllBooksViewModel
-						{
-							Id = b.Id,
-							Author = b.Author,
-							Title = b.Title,
-							ImageURL = b.ImageUrl,
-							Price = b.Price,
-
-						})
-						.ToListAsync();
-
-			return allBooks;
-		}
+		
 
 		public async Task<BookQueryServiceModel> AllAsync(string? genre = null,
 			string? searchTerm = null,

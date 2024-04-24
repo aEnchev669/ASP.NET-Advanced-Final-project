@@ -19,10 +19,10 @@ namespace TheReaderServicesUnitTests
 
 
 		[SetUp]
-		public void SetUp()
+		public void SetUp() 
 		{
 			dbOptions = new DbContextOptionsBuilder<TheReaderDbContext>()
-				.UseInMemoryDatabase("PetShopInMemory" + Guid.NewGuid().ToString())
+				.UseInMemoryDatabase("TheReaderInMemoryDb" )
 				.Options;
 
 			dbContext = new TheReaderDbContext(dbOptions);
@@ -31,10 +31,6 @@ namespace TheReaderServicesUnitTests
 			SeedData.SeedDatabase(dbContext);
 
 			userService = new UserService(dbContext);
-
-
-
-
 		}
 
 		[TearDown]
@@ -59,7 +55,7 @@ namespace TheReaderServicesUnitTests
 		{
 			var userId = User!.Id;
 
-			var user = await userService.GetUserByIdAsync(userId.ToString());
+			var user = await userService.GetUserByIdAsync(userId);
 			Assert.Multiple(() =>
 			{
 				Assert.That(user, Is.Not.Null);
@@ -71,13 +67,13 @@ namespace TheReaderServicesUnitTests
 			});
 		}
 
-		[Test]
+        [Test]
 		public async Task GetAllUsersExceptCurrOneAsync_ShouldReturnAllUsersMinusOne()
 		{
 			var currUser = User;
 
 			var allUsers = dbContext.Users.Count();
-			var users = await userService.GetAllUsersExceptCurrOneAsync(currUser!.Id.ToString());
+			var users = await userService.GetAllUsersExceptCurrOneAsync(currUser!.Id);
 
 			Assert.That(users.Count(), Is.EqualTo(allUsers - 1));
 		}
@@ -97,7 +93,7 @@ namespace TheReaderServicesUnitTests
 				BirthDate = DateTime.Now
 			};
 
-			await userService.EditProfileAsync(user!.Id.ToString(), model);
+			await userService.EditProfileAsync(user!.Id, model);
 
 			Assert.Multiple(() =>
 			{

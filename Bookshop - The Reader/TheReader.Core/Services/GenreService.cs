@@ -88,19 +88,6 @@ namespace TheReader.Core.Services
 			return genre;
 		}
 
-		public async Task<NewGenreViewModel> GetGenreByNameAsync(string name)
-		{
-			var genre = await dbContext
-			   .Genres
-			   .Where(g => g.IsDeleted == false && g.Name == name)
-			   .Select(g => new NewGenreViewModel
-			   {
-				   Name = g.Name,
-			   })
-			   .FirstAsync();
-
-			return genre;
-		}
 
 		public async Task<bool> IsGenreExistAsync(int id)
 		{
@@ -121,22 +108,5 @@ namespace TheReader.Core.Services
 
 			return isExist;
 		}
-
-		public async Task SoftDeleteGenreAsync(int genreId)
-		{
-			Genre genre = await dbContext
-				.Genres
-				.Where(g => g.Id == genreId && g.IsDeleted == false)
-				.FirstAsync();
-
-			if (genre != null)
-			{
-				genre.IsDeleted = true;
-
-				await dbContext.SaveChangesAsync();
-			}
-		}
-
-
 	}
 }

@@ -9,7 +9,7 @@ using TheReader.Infrastructure.Data.Models.Books;
 namespace TheReader.Services.BookServiceTests
 {
 	[TestFixture]
-	public class BookAndGenreServiceTests
+	public class BookServiceTests
 	{
 		int bookId;
 		int genreId;
@@ -171,9 +171,8 @@ namespace TheReader.Services.BookServiceTests
 			};
 
 
-			//Databases
 			var options = new DbContextOptionsBuilder<TheReaderDbContext>()
-				.UseInMemoryDatabase(databaseName: "TheReaderInMemoryDb" + Guid.NewGuid().ToString())
+				.UseInMemoryDatabase(databaseName: "TheReaderInMemoryDb")
 			.Options;
 
 			dbContext = new TheReaderDbContext(options);
@@ -196,12 +195,12 @@ namespace TheReader.Services.BookServiceTests
 		[Test]
 		public async Task Test_AllGenresNamesAsync_ReturnsTheCorrectResult()
 		{
-			// Act
+			
 			var allGenres = await genreService.AllGenresAsync();
 			var result = allGenres.Select(ae => ae.Name);
 			var expectedResult = new List<string>() { "Фантазия", "Научна фантастика", "Класика", "Мистерия", "Ужаси", "Финанси", "Биография", "Храни и напитки", "История", "Пътуване", "Престъпление" };
 
-			// Assert
+			
 			Assert.That(result.Count(), Is.EqualTo(11));
 			Assert.That(result, Is.EqualTo(expectedResult));
 		}
@@ -231,7 +230,8 @@ namespace TheReader.Services.BookServiceTests
 			Assert.That(result, Has.Count.EqualTo(before.Count() + 1));
 		}
 
-		[Test]
+
+        [Test]
 		public async Task BookExistsAsync_ShouldReturnFalse()
 		{
 			int notBookExist = 2332246;
@@ -241,7 +241,20 @@ namespace TheReader.Services.BookServiceTests
 			Assert.That(result, Is.False);
 		}
 
-		[Test]
+        [Test]
+        public async Task BookExistsAsync_ShouldReturnFalsee()
+        {
+
+            var rezult = await dbContext
+                .Books
+                .AnyAsync(b => b.Id == bookId + 10);
+
+            bool result = await bookService.BookExistsAsync(bookId + 10);
+
+            Assert.That(result, Is.False);
+        }
+
+        [Test]
 		public async Task BookExistsAsync_ShouldReturnTrue()
 		{
 			int notBookExist = 2;
@@ -251,19 +264,33 @@ namespace TheReader.Services.BookServiceTests
 			Assert.That(result, Is.True);
 		}
 
-		[Test]
-		public async Task AllBooksAsync_ShouldReturnCorrectCount()
-		{
-			var expected = await dbContext
-				.Books
-				.ToListAsync();
+        [Test]
+        public async Task BookExistsAsync_ShouldReturnTruee()
+        {
+			
+            var rezult = await dbContext
+                .Books
+                .AnyAsync(b => b.Id== bookId );
 
-			var result = await bookService.AllBooksAsync();
+            bool result = await bookService.BookExistsAsync(bookId);
 
-			Assert.That(expected.Count, Is.EqualTo(result.Count()));
-		}
+            Assert.That(result, Is.True);
+        }
 
-		[Test]
+
+        [Test]
+        public async Task AllAsync_ShouldReturnCorrectCount()
+        {
+            var expected = await dbContext
+                .Books
+                .ToListAsync();
+
+            var result = await bookService.AllAsync();
+
+            Assert.That(expected.Count, Is.EqualTo(result.TotalBooksCount));
+        }
+
+        [Test]
 		public async Task LastFourBooksAsync_ShouldReturnCorrectCount()
 		{
 			var expected = await dbContext

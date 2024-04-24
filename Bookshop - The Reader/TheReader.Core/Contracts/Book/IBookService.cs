@@ -6,7 +6,6 @@ namespace TheReader.Core.Contracts.Book
     public interface IBookService
     {
         Task<IEnumerable<BookServiceIndexModel>> LastFourBooksAsync();
-        Task<IEnumerable<AllBooksViewModel>> AllBooksAsync();
 		Task<BookQueryServiceModel> AllAsync(
 			string? genre = null,
 		string? searchTerm = null,

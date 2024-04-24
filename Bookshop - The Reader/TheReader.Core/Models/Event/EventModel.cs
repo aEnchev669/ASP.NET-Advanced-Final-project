@@ -1,11 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using TheReader.Core.Contracts.Event;
 using static TheReader.Infrastructure.Constants.DataConstants.EventConstants;
 using static TheReader.Infrastructure.Constants.ErrorMessages.EventErrorMessages;
 
 namespace TheReader.Core.Models.Event
 {
-	public class EventModel : IEventModel
+    public class EventModel : IEventModel
 	{
 		public int Id { get; set; }
 

@@ -96,19 +96,6 @@ namespace TheReader.Core.Services
 			return user.IsDeleted;
 		}
 
-		public async Task ResumeUserAsync(string userId)
-		{
-			var user = await dbContext
-				.Users
-				.Where(u => u.Id.ToString() == userId
-						&& u.IsDeleted == true)
-				.FirstAsync();
-
-			user.IsDeleted = false;
-
-			await dbContext.SaveChangesAsync();
-		}
-
 		public async Task SoftDeleteUserAsync(string userId)
 		{
 			var user = await dbContext

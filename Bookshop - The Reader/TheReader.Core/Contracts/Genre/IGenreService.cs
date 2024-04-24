@@ -8,10 +8,8 @@ namespace TheReader.Core.Contracts.Genre
 		Task<IEnumerable<string>> AllGenresNamesAsync();
 		Task<bool> IsGenreExistByNameAsync(string genreName);
 		Task<bool> IsGenreExistAsync(int id);
-		Task CreateNewGenreAsync(NewGenreViewModel genreModel);
-		Task SoftDeleteGenreAsync(int genreId);
+        Task CreateNewGenreAsync(NewGenreViewModel genreModel);
 		Task<NewGenreViewModel> GetGenreByIdAsync(int genreId);
-		Task<NewGenreViewModel> GetGenreByNameAsync(string name);
 		DeleteGenreViewModel DeleteGenreAsync(int bookId);
 		Task<int> DeleteGenreConfirmAsync(int bookId);
 	}

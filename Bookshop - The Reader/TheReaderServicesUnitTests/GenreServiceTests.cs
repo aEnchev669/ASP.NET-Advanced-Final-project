@@ -6,155 +6,195 @@ using TheReader.Core.Services;
 
 namespace TheReaderServicesUnitTests
 {
-	public class GenreServiceTests
-	{
-		private DbContextOptions<TheReaderDbContext> dbOptions;
-		private TheReaderDbContext dbContext;
+    public class GenreServiceTests
+    {
+        private DbContextOptions<TheReaderDbContext> dbOptions;
+        private TheReaderDbContext dbContext;
 
-		private IGenreService genreService;
+        private IGenreService genreService;
 
-		int genreId;
-		[SetUp]
-		public void SetUp()
-		{
-			dbOptions = new DbContextOptionsBuilder<TheReaderDbContext>()
-				.UseInMemoryDatabase("PetShopInMemory" + Guid.NewGuid().ToString())
-				.Options;
+        int genreId;
+        [SetUp]
+        public void SetUp()
+        {
+            dbOptions = new DbContextOptionsBuilder<TheReaderDbContext>()
+                .UseInMemoryDatabase("TheReaderInMemoryDb")
+                .Options;
 
-			dbContext = new TheReaderDbContext(dbOptions);
+            dbContext = new TheReaderDbContext(dbOptions);
 
-			dbContext.Database.EnsureCreated();
-			SeedData.SeedDatabase(dbContext);
+            dbContext.Database.EnsureCreated();
+            SeedData.SeedDatabase(dbContext);
 
-			genreService = new GenreService(dbContext);
+            genreService = new GenreService(dbContext);
 
-			genreId = 2;
-		}
+            genreId = 2;
+        }
 
-		[TearDown]
-		public void TearDown()
-		{
-			dbContext.Database.EnsureDeleted();
-		}
+        [TearDown]
+        public void TearDown()
+        {
+            dbContext.Database.EnsureDeleted();
+        }
 
-		[Test]
-		public async Task AllGenresAsync_ShouldReturnListOfAllGenres()
-		{
-			var expected = await dbContext
-				.Genres
-				.ToListAsync();
+        [Test]
+        public async Task AllGenresAsync_ShouldReturnListOfAllGenres()
+        {
+            var expected = await dbContext
+                .Genres
+                .ToListAsync();
 
-			var result = await genreService.AllGenresAsync();
+            var result = await genreService.AllGenresAsync();
 
-			Assert.That(expected, Has.Count.EqualTo(result.Count()));
-		}
+            Assert.That(expected, Has.Count.EqualTo(result.Count()));
+        }
 
-		[Test]
-		public async Task IsGenreExistAsync_ShouldReturnTrue()
-		{
-			bool result = await genreService.IsGenreExistAsync(genreId);
+        [Test]
+        public async Task IsGenreExistAsync_ShouldReturnTrue()
+        {
+            bool result = await genreService.IsGenreExistAsync(genreId);
 
-			Assert.That(result, Is.True);
-		}
+            Assert.That(result, Is.True);
+        }
 
-		[Test]
-		public async Task IsGenreExistAsync_ShouldReturnFalse()
-		{
-			int notExistGenre = 2332246;
+        [Test]
+        public async Task IsGenreExistAsync_ShouldReturnFalse()
+        {
+            int notExistGenre = 2332246;
 
-			bool result = await genreService.IsGenreExistAsync(notExistGenre);
+            bool result = await genreService.IsGenreExistAsync(notExistGenre);
 
-			Assert.That(result, Is.False);
-		}
+            Assert.That(result, Is.False);
+        }
 
-		[Test]
-		public async Task AllGenresAsync_ShouldReturnArrayOfAllGenresNames()
-		{
-			var expected = await dbContext
-				.Genres
-				.Where(c => c.IsDeleted == false)
-				.ToListAsync();
+        [Test]
+        public async Task AllGenresAsync_ShouldReturnArrayOfAllGenresNames()
+        {
+            var expected = await dbContext
+                .Genres
+                .Where(c => c.IsDeleted == false)
+                .ToListAsync();
 
-			var result = await genreService.AllGenresAsync();
+            var result = await genreService.AllGenresAsync();
 
-			Assert.That(expected.Count, Is.EqualTo(result.Count));
-		}
+            Assert.That(expected.Count, Is.EqualTo(result.Count));
+        }
 
-		[Test]
-		public async Task IsGenreExistByNameAsync_ShouldReturnTrue()
-		{
-			var genreName = await dbContext
-				.Genres
-				.Where(c => c.Id == genreId)
-				.Select(c => c.Name)
-				.FirstAsync();
+        [Test]
+        public async Task IsGenreExistByNameAsync_ShouldReturnTrue()
+        {
+            var genreName = await dbContext
+                .Genres
+                .Where(c => c.Id == genreId)
+                .Select(c => c.Name)
+                .FirstAsync();
 
-			bool result = await genreService.IsGenreExistByNameAsync(genreName);
+            bool result = await genreService.IsGenreExistByNameAsync(genreName);
 
-			Assert.That(result, Is.True);
-		}
+            Assert.That(result, Is.True);
+        }
 
-		[Test]
-		public async Task IsGenreExistByNameAsync_ShouldReturnFalse()
-		{
-			var genreName = "Unexisting Test Name";
+        [Test]
+        public async Task IsGenreExistByNameAsync_ShouldReturnFalse()
+        {
+            var genreName = "Unexisting Test Name";
 
-			bool result = await genreService.IsGenreExistByNameAsync(genreName);
+            bool result = await genreService.IsGenreExistByNameAsync(genreName);
 
-			Assert.That(result, Is.False);
-		}
+            Assert.That(result, Is.False);
+        }
 
-		[Test]
-		public async Task CreateNewGenreAsync_ShouldIncreaseCountOfCollection()
-		{
-			int currCount = await dbContext
-				.Genres.CountAsync();
+        [Test]
+        public async Task CreateNewGenreAsync_ShouldIncreaseCountOfCollection()
+        {
+            int currCount = await dbContext
+                .Genres.CountAsync();
 
-			var model = new NewGenreViewModel()
-			{
-				Name = "Test Category Name",
-			};
+            var model = new NewGenreViewModel()
+            {
+                Name = "Test Category Name",
+            };
 
-			await genreService.CreateNewGenreAsync(model);
+            await genreService.CreateNewGenreAsync(model);
 
-			int resultCount = await dbContext
-				.Genres.CountAsync();
+            int resultCount = await dbContext
+                .Genres.CountAsync();
 
-			Assert.That(resultCount, Is.EqualTo(currCount + 1));
-		}
+            Assert.That(resultCount, Is.EqualTo(currCount + 1));
+        }
 
-		[Test]
-		public async Task GetGenreByIdAsync_ShouldReturnRightGenre()
-		{
-			var expect = await dbContext
-				.Genres
-				.Where(c => c.Id == genreId && !c.IsDeleted)
-				.FirstAsync();
+        [Test]
+        public async Task CreateNewGenreAsync_ShouldAddNewGenre()
+        {
+           
 
-			var result = await genreService.GetGenreByIdAsync(genreId);
+            var model = new NewGenreViewModel()
+            {
+                Name = "Test Category Name",
+            };
 
-			Assert.Multiple(() =>
-			{
-				Assert.That(result, Is.Not.Null);
+          await genreService.CreateNewGenreAsync(model);
 
-				Assert.That(expect.Name, Is.EqualTo(result.Name));
-			});
-		}
+          var result = await dbContext
+                  .Genres
+                  .AnyAsync(g => g.Name == model.Name);
+         
+
+            Assert.That(result, Is.EqualTo(true));
+        }
 
 
-		[Test]
-		public async Task DeleteGenreConfirmAsync_ShouldTurnIsDeleteToTrue()
-		{
-			var genre = await dbContext
-				.Genres
-				.Where(c => c.Id == genreId)
-				.FirstAsync();
 
-			genre.IsDeleted = false;
+        [Test]
+        public async Task GetGenreByIdAsync_ShouldReturnRightGenre()
+        {
+            var expect = await dbContext
+                .Genres
+                .Where(c => c.Id == genreId && !c.IsDeleted)
+                .FirstAsync();
 
-			await genreService.DeleteGenreConfirmAsync(genreId);
+            var result = await genreService.GetGenreByIdAsync(genreId);
 
-			Assert.That(genre.IsDeleted, Is.True);
-		}
-	}
+            Assert.Multiple(() =>
+            {
+                Assert.That(result, Is.Not.Null);
+
+                Assert.That(expect.Name, Is.EqualTo(result.Name));
+            });
+        }
+
+        [Test]
+        public async Task DeleteBookAsync_ShouldReturnCorrectCount()
+        {
+            var genre = dbContext
+                .Genres
+                .Where(g => g.Id == genreId)
+                .FirstOrDefault();
+
+            var expected = new DeleteGenreViewModel()
+            {
+                Id = genre.Id,
+                Name = genre.Name
+            };
+
+            var result = genreService.DeleteGenreAsync(genreId);
+
+            Assert.AreEqual(expected.Name, (result.Name));
+        }
+
+        [Test]
+        public async Task DeleteGenreConfirmAsync_ShouldTurnIsDeleteToTrue()
+        {
+            var genre = await dbContext
+                .Genres
+                .Where(c => c.Id == genreId)
+                .FirstAsync();
+
+            genre.IsDeleted = false;
+
+            await genreService.DeleteGenreConfirmAsync(genreId);
+
+            Assert.That(genre.IsDeleted, Is.True);
+        }
+    }
 }

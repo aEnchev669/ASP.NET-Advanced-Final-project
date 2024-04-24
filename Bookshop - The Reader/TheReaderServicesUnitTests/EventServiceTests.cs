@@ -23,7 +23,7 @@ namespace TheReaderServicesUnitTests
 		public void SetUp()
 		{
 			dbOptions = new DbContextOptionsBuilder<TheReaderDbContext>()
-				.UseInMemoryDatabase("PetShopInMemory" + Guid.NewGuid().ToString())
+				.UseInMemoryDatabase("TheReaderInMemoryDb" )
 				.Options;
 
 			dbContext = new TheReaderDbContext(dbOptions);

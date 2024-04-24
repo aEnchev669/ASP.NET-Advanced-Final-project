@@ -12,8 +12,6 @@ namespace TheReader.Core.Contracts.User
 
         Task EditProfileAsync(string userId, EditProfileViewModel model);
 
-        Task ResumeUserAsync(string userId);
-
         Task SoftDeleteUserAsync(string userId);
 
         Task<bool> IsUserDeletedAsync(string userId);

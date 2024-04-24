@@ -21,7 +21,7 @@ namespace TheReaderServicesUnitTests
 		public void SetUp()
 		{
 			dbOptions = new DbContextOptionsBuilder<TheReaderDbContext>()
-				.UseInMemoryDatabase("PetShopInMemory" + Guid.NewGuid().ToString())
+				.UseInMemoryDatabase("TheReaderInMemoryDb")
 				.Options;
 
 			dbContext = new TheReaderDbContext(dbOptions);
@@ -99,7 +99,8 @@ namespace TheReaderServicesUnitTests
 			Assert.That(result, Is.EqualTo(before + 1));
 		}
 
-		[Test]
+
+        [Test]
 		public async Task AddItemToCartAsync_ShouldAddItemToLastCurrUserCart()
 		{
 			var before = dbContext

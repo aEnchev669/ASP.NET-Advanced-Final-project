@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using TheReader.Core.Contracts.Order;
 using TheReader.Core.Models.Order;
 using TheReader.Core.Services;
+using TheReader.Infrastructure.Data.Models.Orders;
 
 namespace TheReaderServicesUnitTests
 {
@@ -17,7 +18,7 @@ namespace TheReaderServicesUnitTests
 		public void SetUp()
 		{
 			dbOptions = new DbContextOptionsBuilder<TheReaderDbContext>()
-				.UseInMemoryDatabase("PetShopInMemory" + Guid.NewGuid().ToString())
+				.UseInMemoryDatabase("TheReaderInMemoryDb")
 				.Options;
 
 			dbContext = new TheReaderDbContext(dbOptions);
@@ -52,13 +53,13 @@ namespace TheReaderServicesUnitTests
 				Assert.That(order.LastName, Is.EqualTo(resultOrder.LastName));
 				Assert.That(order.City, Is.EqualTo(resultOrder.City));
 				Assert.That(order.CartId, Is.EqualTo(resultOrder.CartId));
-				Assert.That(order.UserId.ToString(), Is.EqualTo(resultOrder.UserId));
+				Assert.That(order.UserId, Is.EqualTo(resultOrder.UserId));
 				Assert.That(order.TotalPrice, Is.EqualTo(resultOrder.TotalPrice));
 				Assert.That(order.Phone, Is.EqualTo(resultOrder.Phone));
 			});
 		}
 
-		[Test]
+        [Test]
 		public async Task GetAllOrdersByUserIdAsync_ShouldResturnListOfOrders()
 		{
 			var userId = "333aw2123467-33dda-e33a-8s2a-55566955544";
@@ -74,7 +75,8 @@ namespace TheReaderServicesUnitTests
 
 		}
 
-		[Test]
+        
+        [Test]
 		public async Task CreateOrderAsync_ShouldCreateNewOrder()
 		{
 			var before = await dbContext
@@ -102,7 +104,34 @@ namespace TheReaderServicesUnitTests
 			Assert.That(result, Has.Count.EqualTo(before.Count() + 1));
 		}
 
-		[Test]
+        [Test]
+        public async Task CreateOrderAsync_ShouldCreateNewOrderName()
+        {
+            
+            var order = new OrderFormViewModel()
+            {
+                FirstName = "Test",
+                LastName = "Last Name Test",
+                City = "Test City",
+                CartId = 2,
+                UserId = "333aw2123467-33dda-e33a-8s2a-55566955544",
+                TotalPrice = 22.35M
+            };
+
+            await orderService.CreateOrderAsync(order);
+
+            var result = await dbContext
+                .Orders
+                .Where(o => o.UserId == "333aw2123467-33dda-e33a-8s2a-55566955544" && o.LastName == order.LastName)
+                .Select(o => o.LastName)
+                .ToListAsync();
+
+
+
+			Assert.That(result[0], Is.EqualTo(order.LastName));
+        }
+
+        [Test]
 		public async Task GetLastOrderListByUserIdAsync_ShouldReturnLastOrder()
 		{
 			var userId = "333aw2123467-33dda-e33a-8s2a-55566955544";
