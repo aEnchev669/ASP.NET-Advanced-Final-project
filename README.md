@@ -15,3 +15,7 @@ The Reader, is my defense project for ASP.NET Core course at SoftUni. The Reader
 💾 Database Diagram
 -
 ![image](https://github.com/aEnchev669/ASP.NET-Advanced-Final-project/assets/108530917/bc280957-1b22-4d7a-8f60-62974402ec78)
+
+📄 License
+-
+This project is licensed under the MIT license - see the LICENSE.md file for details.
