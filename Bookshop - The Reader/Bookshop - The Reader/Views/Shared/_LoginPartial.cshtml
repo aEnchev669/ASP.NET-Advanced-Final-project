@@ -5,55 +5,67 @@
 @inject UserManager<ApplicationUser> UserManager
 
 
-<ul class="navbar-nav">
-	@if (SignInManager.IsSignedIn(User))
-	{
-		@if (!User.IsInRole("Administrator"))
+<ul class="navbar-nav" id="NavBar">
+	<ul>
+		@if (SignInManager.IsSignedIn(User))
 		{
+
+			@if (!User.IsInRole("Administrator"))
+			{
+				<li>
+					<div class="nav-item me-3">
+						<a class="btn tn btn btn-info text-black col-12" asp-area="" asp-controller="Cart" asp-action="Cart">
+							<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" id="cart">
+								<path d="M14 36c-2.21 0-3.98 1.79-3.98 4s1.77 4 3.98 4 4-1.79 4-4-1.79-4-4-4zM2 4v4h4l7.19 15.17-2.7 4.9c-.31.58-.49 1.23-.49 1.93 0 2.21 1.79 4 4 4h24v-4H14.85c-.28 0-.5-.22-.5-.5 0-.09.02-.17.06-.24L16.2 26h14.9c1.5 0 2.81-.83 3.5-2.06l7.15-12.98c.16-.28.25-.61.25-.96a2 2 0 0 0-2-2H10.43l-1.9-4H2zm32 32c-2.21 0-3.98 1.79-3.98 4s1.77 4 3.98 4 4-1.79 4-4-1.79-4-4-4z">
+								</path>
+							</svg>
+						</a>
+					</div>
+				</li>
+			}
+
 			<li>
-				<div class="nav-item me-3">
-					<a class="btn tn btn btn-info text-black col-12" asp-area="" asp-controller="Cart" asp-action="Cart">
-						<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" id="cart">
-							<path d="M14 36c-2.21 0-3.98 1.79-3.98 4s1.77 4 3.98 4 4-1.79 4-4-1.79-4-4-4zM2 4v4h4l7.19 15.17-2.7 4.9c-.31.58-.49 1.23-.49 1.93 0 2.21 1.79 4 4 4h24v-4H14.85c-.28 0-.5-.22-.5-.5 0-.09.02-.17.06-.24L16.2 26h14.9c1.5 0 2.81-.83 3.5-2.06l7.15-12.98c.16-.28.25-.61.25-.96a2 2 0 0 0-2-2H10.43l-1.9-4H2zm32 32c-2.21 0-3.98 1.79-3.98 4s1.77 4 3.98 4 4-1.79 4-4-1.79-4-4-4z">
-							</path>
+				<div class="dropdown me-3">
+					<a class="btn btn-info" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" fill="white" class="bi bi-person-circle" viewBox="0 0 16 16">
+							<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+							<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
 						</svg>
 					</a>
+
+					<ul class="dropdown-menu">
+						@if (!User.IsInRole("Administrator"))
+						{
+							<li><a class="dropdown-item" asp-area="" asp-controller="Order" asp-action="OrderHistory">Order History</a></li>
+						}
+						<li><a class="dropdown-item" asp-area="" asp-controller="User" asp-action="Details">Profile</a></li>
+						<li><a class="dropdown-item" asp-area="" asp-controller="User" asp-action="ChangePassword">Change Password</a></li>
+					</ul>
 				</div>
+
+			</li>
+			<li class="nav-item me-3">
+				<form class="form-inline" asp-area="" asp-controller="User" asp-action="Logout">
+					<button type="submit" class="nav-link btn btn-outline-warning text-black col-12">Logout</button>
+				</form>
 			</li>
 		}
-		<li>
-			<div class="dropdown me-3">
-				<a class="btn btn-info" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-					<svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" fill="white" class="bi bi-person-circle" viewBox="0 0 16 16">
-						<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-						<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-					</svg>
-				</a>
-
-				<ul class="dropdown-menu">
-					@if (!User.IsInRole("Administrator"))
-					{
-						<li><a class="dropdown-item" asp-area="" asp-controller="Order" asp-action="OrderHistory">Order History</a></li>
-					}
-					<li><a class="dropdown-item" asp-area="" asp-controller="User" asp-action="Details">Profile</a></li>
-					<li><a class="dropdown-item" asp-area="" asp-controller="User" asp-action="ChangePassword">Change Password</a></li>
-				</ul>
-			</div>
-
-		</li>
-		<li class="nav-item me-3">
-			<form class="form-inline" asp-area="" asp-controller="User" asp-action="Logout">
-				<button type="submit" class="nav-link btn btn-outline-warning text-black col-12">Logout</button>
-			</form>
-		</li>
-	}
-	else
-	{
-		<li class="nav-item">
-			<a class="btn btn-info" asp-area="" asp-controller="User" asp-action="Register">Register</a>
-		</li>
-		<li class="nav-item">
-			<a class="btn btn-info" asp-area="" asp-controller="User" asp-action="Login">Login</a>
-		</li>
-	}
+		else
+		{
+			<li class="nav-item">
+				<a class="btn btn-info" asp-area="" asp-controller="User" asp-action="Register">Register</a>
+			</li>
+			<li class="nav-item">
+				<a class="btn btn-info" asp-area="" asp-controller="User" asp-action="Login">Login</a>
+			</li>
+		}
+	</ul>
 </ul>
+
+<style>
+	#NavBar {
+		position: absolute;
+		left: auto;
+		right: 0;
+	}
+</style>

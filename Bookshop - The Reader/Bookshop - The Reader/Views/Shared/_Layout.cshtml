@@ -13,19 +13,37 @@
 <body>
 	<header>
 
-		<nav  class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3" >
+		<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3" id="navbar">
 			<div class="container-fluid">
 				@if (!User.Identity.IsAuthenticated)
 				{
 					<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">The Reader</a>
 
 				}
+				<ul class="navbar-nav flex-grow-1">
+
+					@if (this.User?.Identity?.IsAuthenticated ?? false)
+					{
+						<ul>
+							<li class="nav-item">
+								<a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="All">All Books</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link text-dark" asp-area="" asp-controller="Genre" asp-action="All">Genres</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link text-dark" asp-area="" asp-controller="Event" asp-action="All">Events</a>
+							</li>
+						</ul>
+
+					}
+				</ul>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
 						aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-					@await Component.InvokeAsync(nameof(MainMenuComponent))
+				<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between" id="loginPartial">
+
 					<partial name="_LoginPartial" />
 				</div>
 			</div>
@@ -48,3 +66,36 @@
 	@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+<script>
+	window.addEventListener("scroll", function () {
+		var navBar = document.getElementById("navbar");
+		if (window.pageYOffset > 0) {
+			navBar.classList.add("navbar-scrolled");
+		} else {
+			navBar.classList.remove("navbar-scrolled");
+		}
+	});
+</script>
+
+<style>
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+	}
+
+	li {
+		float: left;
+	}
+
+	#navbar {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 100;
+		background-color: white; 
+	}
+</style>
