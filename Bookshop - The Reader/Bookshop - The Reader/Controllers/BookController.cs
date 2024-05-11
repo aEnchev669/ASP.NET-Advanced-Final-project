@@ -20,16 +20,6 @@ namespace Bookshop___The_Reader.Controllers
 			genreService = _genreService;
 		}
 
-		//      [HttpGet]
-		//public async Task<IActionResult> All()
-		//{
-		//	var books = await bookService.AllBooksAsync();
-		//	if (books == null)
-		//	{
-		//		return View();
-		//	}
-		//	return View(books);
-		//}
 
 		[HttpGet]
 		public async Task<IActionResult> All([FromQuery] AllBooksQueryModel model)
